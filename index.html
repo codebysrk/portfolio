@@ -1072,13 +1072,16 @@
             <div
               class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
             >
-              <img
-                src="https://placehold.co/800x600/1a1a1a/F95C4B?text=CyberClock"
-                alt="CyberClock"
+              <video
+                src="./assets/projects/clock.webm"
+                muted
+                loop
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+                onmouseenter="this.play()"
+                onmouseleave="this.pause();this.currentTime=0;"
+              ></video>
               <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"
+                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
               ></div>
             </div>
             <div class="flex justify-between items-start mb-2">
@@ -1119,6 +1122,64 @@
               >
               <a
                 href="https://github.com/codebysrk/CyberClock"
+                target="_blank"
+                class="text-gray-500 font-bold hover:text-black transition-colors"
+                >View Code</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card group cursor-pointer md:mt-20 gsap-reveal">
+            <div
+              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
+            >
+              <img
+                src="https://placehold.co/800x600/F6F4F1/000000?text=Portfolio"
+                alt="Portfolio"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"
+              ></div>
+            </div>
+            <div class="flex justify-between items-start mb-2">
+              <h3
+                class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
+              >
+                Portfolio
+              </h3>
+              <span
+                class="font-sans font-bold text-5xl text-stone/50 group-hover:text-stone transition-colors"
+                >06</span
+              >
+            </div>
+            <p class="font-sans text-lg text-gray-600 mb-4 line-clamp-2">
+              Personal portfolio with GSAP animations, smooth scroll, and
+              premium design.
+            </p>
+            <div class="flex gap-3 mb-4">
+              <span
+                class="px-3 py-1 bg-stone text-black text-xs font-bold rounded-full"
+                >Tailwind</span
+              >
+              <span
+                class="px-3 py-1 bg-stone text-black text-xs font-bold rounded-full"
+                >GSAP</span
+              >
+              <span
+                class="px-3 py-1 bg-stone text-black text-xs font-bold rounded-full"
+                >Lenis</span
+              >
+            </div>
+            <div class="flex gap-4">
+              <a
+                href="https://codebysrk.github.io/profile/"
+                target="_blank"
+                class="text-coral font-bold hover:text-black transition-colors border-b-2 border-coral hover:border-black"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/codebysrk/profile"
                 target="_blank"
                 class="text-gray-500 font-bold hover:text-black transition-colors"
                 >View Code</a
