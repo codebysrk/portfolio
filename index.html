@@ -3,7 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shahrukh Khan - Portfolio</title>
+    <title>Shahrukh Khan - Full Stack Developer Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Shahrukh Khan - Full Stack Developer Portfolio. Building clean, responsive, and modern web applications using React, Node.js, and the MERN stack."
+    />
+    <meta
+      name="keywords"
+      content="Shahrukh Khan, Full Stack Developer, Web Developer, MERN Stack, React Developer, Node.js, Portfolio, Frontend Developer, JavaScript Developer"
+    />
+    <meta name="author" content="Shahrukh Khan" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://codebysrk.github.io/personal-website/"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://codebysrk.github.io/personal-website/"
+    />
+    <meta
+      property="og:title"
+      content="Shahrukh Khan - Full Stack Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Building clean, responsive, and modern web applications using React, Node.js, and the MERN stack."
+    />
+    <meta
+      property="og:image"
+      content="https://codebysrk.github.io/personal-website/assets/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://codebysrk.github.io/personal-website/"
+    />
+    <meta
+      name="twitter:title"
+      content="Shahrukh Khan - Full Stack Developer Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Building clean, responsive, and modern web applications using React, Node.js, and the MERN stack."
+    />
+    <meta
+      name="twitter:image"
+      content="https://codebysrk.github.io/personal-website/assets/og-image.jpg"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,12 +96,63 @@
     />
 
     <style>
+      /* --- CSS VARIABLES FOR THEMING --- */
+      :root {
+        --bg-primary: #f6f4f1;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #e4ded2;
+        --text-primary: #000000;
+        --text-secondary: #4b5563;
+        --text-muted: #6b7280;
+        --accent: #f95c4b;
+        --border-color: rgba(228, 222, 210, 0.5);
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --card-bg: #ffffff;
+        --preloader-bg: #f6f4f1;
+        --scrollbar-track: #e4ded2;
+        --scrollbar-thumb: #f95c4b;
+      }
+
+      html.dark {
+        --bg-primary: #0f0f0f;
+        --bg-secondary: #1a1a1a;
+        --bg-tertiary: #2a2a2a;
+        --text-primary: #f6f4f1;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --accent: #f95c4b;
+        --border-color: rgba(75, 75, 75, 0.5);
+        --shadow-color: rgba(0, 0, 0, 0.4);
+        --card-bg: #1a1a1a;
+        --preloader-bg: #0f0f0f;
+        --scrollbar-track: #2a2a2a;
+        --scrollbar-thumb: #f95c4b;
+      }
+
+      /* Smooth transition for theme changes */
+      html,
+      body,
+      header,
+      section,
+      div,
+      nav,
+      a,
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      span {
+        transition: background-color 0.4s ease, color 0.4s ease,
+          border-color 0.4s ease;
+      }
+
       /* --- GLOBAL STYLES --- */
       html,
       body {
         scroll-behavior: auto;
         scrollbar-width: thin;
-        scrollbar-color: #f95c4b #e4ded2;
+        scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
       }
       html.lenis,
       html.lenis body {
@@ -503,6 +608,201 @@
       .gsap-reveal {
         opacity: 0;
         transform: translateY(30px);
+      }
+
+      /* --- DARK MODE OVERRIDES --- */
+      html.dark body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      html.dark #preloader {
+        background-color: var(--preloader-bg);
+      }
+
+      html.dark .loader {
+        --path: #f6f4f1;
+      }
+
+      html.dark header {
+        background-color: var(--bg-secondary) !important;
+        box-shadow: 0 4px 6px -1px var(--shadow-color);
+      }
+
+      html.dark .logo span {
+        color: var(--text-primary);
+      }
+
+      html.dark .nav .container {
+        background-color: var(--bg-tertiary);
+      }
+
+      html.dark .nav-btn {
+        color: var(--text-primary);
+      }
+
+      html.dark .nav-btn:hover {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      html.dark .bars {
+        background-color: var(--text-primary);
+      }
+
+      html.dark #mobile-menu {
+        background-color: var(--bg-primary);
+      }
+
+      html.dark .mobile-nav-link {
+        color: var(--text-primary);
+      }
+
+      html.dark .mobile-nav-link:hover {
+        color: var(--accent);
+      }
+
+      html.dark .site-banner {
+        background-color: var(--bg-primary);
+      }
+
+      html.dark .site-title h1,
+      html.dark .site-title h3,
+      html.dark .site-title h4 {
+        color: var(--text-primary);
+      }
+
+      html.dark .site-title h3 {
+        color: var(--accent);
+      }
+
+      html.dark .site-title h4 {
+        color: var(--text-secondary);
+      }
+
+      html.dark .site-title p {
+        color: var(--text-muted);
+      }
+
+      html.dark #about {
+        background-color: var(--bg-secondary);
+      }
+
+      html.dark #about h2,
+      html.dark #about h3 {
+        color: var(--text-primary);
+      }
+
+      html.dark #about p {
+        color: var(--text-secondary);
+      }
+
+      html.dark #about .border-stone\/50 {
+        border-color: var(--border-color);
+        background-color: var(--bg-primary);
+      }
+
+      html.dark #about .border-stone\/50:hover {
+        border-color: var(--accent);
+      }
+
+      html.dark #about span {
+        color: var(--text-muted);
+      }
+
+      html.dark #projects {
+        background-color: var(--bg-primary);
+        border-color: var(--border-color);
+      }
+
+      html.dark #projects h2,
+      html.dark #projects h3 {
+        color: var(--text-primary);
+      }
+
+      html.dark #projects p {
+        color: var(--text-secondary);
+      }
+
+      html.dark .project-card .border-stone {
+        border-color: var(--bg-tertiary);
+      }
+
+      html.dark .project-card span.bg-stone {
+        background-color: var(--bg-tertiary);
+        color: var(--text-primary);
+      }
+
+      html.dark section[class*="bg-white"] {
+        background-color: var(--bg-secondary) !important;
+      }
+
+      html.dark section[class*="bg-white"] h2,
+      html.dark section[class*="bg-white"] h3,
+      html.dark section[class*="bg-white"] h4 {
+        color: var(--text-primary);
+      }
+
+      html.dark section[class*="bg-white"] p {
+        color: var(--text-secondary);
+      }
+
+      html.dark .border-stone {
+        border-color: var(--bg-tertiary) !important;
+      }
+
+      html.dark .hire-btn {
+        background-color: var(--bg-tertiary);
+        color: var(--text-primary);
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3),
+          -6px -6px 12px rgba(50, 50, 50, 0.2);
+      }
+
+      html.dark .hire-btn:hover {
+        color: var(--bg-primary);
+      }
+
+      html.dark .banner-image .bg-paper {
+        background-color: var(--bg-secondary);
+      }
+
+      html.dark .text-gray-600 {
+        color: var(--text-secondary) !important;
+      }
+
+      html.dark .text-gray-500 {
+        color: var(--text-muted) !important;
+      }
+
+      html.dark .text-black {
+        color: var(--text-primary) !important;
+      }
+
+      html.dark .bg-paper {
+        background-color: var(--bg-primary) !important;
+      }
+
+      html.dark .bg-white {
+        background-color: var(--bg-secondary) !important;
+      }
+
+      html.dark .bg-stone {
+        background-color: var(--bg-tertiary) !important;
+      }
+
+      /* Case Study Section Dark Mode */
+      html.dark .case-study-card {
+        background: rgba(30, 30, 30, 0.7);
+        border-color: var(--border-color);
+      }
+
+      html.dark ::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+      }
+
+      html.dark ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-color: var(--scrollbar-track);
       }
     </style>
   </head>
@@ -1405,6 +1705,59 @@
           menuTl.reverse();
         });
       });
+
+      // 4. DARK MODE TOGGLE
+      const darkModeDesktop = document.getElementById("checkbox-desktop");
+      const darkModeMobile = document.getElementById("checkbox-mobile");
+      const htmlElement = document.documentElement;
+
+      // Check for saved preference or system preference
+      function initDarkMode() {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          htmlElement.classList.add("dark");
+          if (darkModeDesktop) darkModeDesktop.checked = true;
+          if (darkModeMobile) darkModeMobile.checked = true;
+        } else {
+          htmlElement.classList.remove("dark");
+          if (darkModeDesktop) darkModeDesktop.checked = false;
+          if (darkModeMobile) darkModeMobile.checked = false;
+        }
+      }
+
+      // Toggle dark mode function
+      function toggleDarkMode(isDark) {
+        if (isDark) {
+          htmlElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          htmlElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+        // Sync both toggles
+        if (darkModeDesktop) darkModeDesktop.checked = isDark;
+        if (darkModeMobile) darkModeMobile.checked = isDark;
+      }
+
+      // Event listeners for both checkboxes
+      if (darkModeDesktop) {
+        darkModeDesktop.addEventListener("change", function () {
+          toggleDarkMode(this.checked);
+        });
+      }
+
+      if (darkModeMobile) {
+        darkModeMobile.addEventListener("change", function () {
+          toggleDarkMode(this.checked);
+        });
+      }
+
+      // Initialize on page load
+      initDarkMode();
     </script>
   </body>
 </html>
