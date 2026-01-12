@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shahrukh Khan - Portfolio</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap"
-      rel="stylesheet"
-    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,540 +15,167 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ["Lato", "sans-serif"],
-              serif: ["Playfair Display", "serif"],
+              sans: ['Lato', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
             },
             colors: {
-              paper: "#F6F4F1",
-              stone: "#E4DED2",
-              coral: "#F95C4B",
-            },
-          },
-        },
-      };
+              paper: '#F6F4F1',
+              stone: '#E4DED2',
+              coral: '#F95C4B',
+            }
+          }
+        }
+      }
     </script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/lenis@1.3.17/dist/lenis.css"
-    />
-
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css">
+    
     <style>
       /* --- GLOBAL STYLES --- */
-      html,
-      body {
+      html, body {
         scroll-behavior: auto;
         scrollbar-width: thin;
-        scrollbar-color: #f95c4b #e4ded2;
+        scrollbar-color: #F95C4B #E4DED2;
       }
-      html.lenis,
-      html.lenis body {
-        height: auto;
-      }
-      .lenis.lenis-smooth {
-        scroll-behavior: auto !important;
-      }
+      html.lenis, html.lenis body { height: auto; }
+      .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-      /* --- PRELOADER CSS (ALL 3 SHAPES) --- */
+      /* --- PRELOADER --- */
       #preloader {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        background-color: #f6f4f1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem; /* Gap between the 3 loaders */
-        opacity: 1;
-        visibility: visible;
+        position: fixed; inset: 0; z-index: 9999;
+        background-color: #F6F4F1;
+        display: flex; justify-content: center; align-items: center;
+        gap: 2rem; opacity: 1; visibility: visible;
       }
-
-      /* Make loaders slightly larger */
-      .loader-wrapper {
-        transform: scale(1.2);
-        display: flex;
-        gap: 20px;
-      }
-
+      .loader-wrapper { transform: scale(1.2); display: flex; gap: 20px; }
       .loader {
-        --path: #000000;
-        --dot: #f95c4b;
-        --duration: 3s;
-        width: 44px;
-        height: 44px;
-        position: relative;
-        display: inline-block;
+        --path: #000000; --dot: #F95C4B; --duration: 3s;
+        width: 44px; height: 44px; position: relative; display: inline-block;
       }
-
       .loader:before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        position: absolute;
-        display: block;
-        background: var(--dot);
-        top: 37px;
-        left: 19px;
-        transform: translate(-18px, -18px);
+        content: ""; width: 6px; height: 6px; border-radius: 50%;
+        position: absolute; display: block; background: var(--dot);
+        top: 37px; left: 19px; transform: translate(-18px, -18px);
       }
+      .loader svg { display: block; width: 100%; height: 100%; }
+      .loader svg rect, .loader svg polygon, .loader svg circle {
+        fill: none; stroke: var(--path); stroke-width: 10px; stroke-linejoin: round; stroke-linecap: round;
+      }
+      /* Loaders Animation */
+      .loader.triangle { width: 48px; }
+      .loader.triangle:before { left: 21px; transform: translate(-10px, -18px); animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite; }
+      .loader.triangle svg polygon { stroke-dasharray: 145 76 145 76; stroke-dashoffset: 0; animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite; }
+      .loader.rect:before { animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite; }
+      .loader svg rect { stroke-dasharray: 192 64 192 64; stroke-dashoffset: 0; animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite; }
+      .loader.circle:before { animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite; }
+      .loader svg circle { stroke-dasharray: 150 50 150 50; stroke-dashoffset: 75; animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite; }
 
-      .loader svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      .loader svg rect,
-      .loader svg polygon,
-      .loader svg circle {
-        fill: none;
-        stroke: var(--path);
-        stroke-width: 10px;
-        stroke-linejoin: round;
-        stroke-linecap: round;
-      }
-
-      /* 1. TRIANGLE */
-      .loader.triangle {
-        width: 48px;
-      }
-      .loader.triangle:before {
-        left: 21px;
-        transform: translate(-10px, -18px);
-        animation: dotTriangle var(--duration)
-          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-      }
-      .loader.triangle svg polygon {
-        stroke-dasharray: 145 76 145 76;
-        stroke-dashoffset: 0;
-        animation: pathTriangle var(--duration)
-          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-      }
-
-      /* 2. RECTANGLE */
-      .loader.rect:before {
-        animation: dotRect var(--duration)
-          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-      }
-      .loader svg rect {
-        stroke-dasharray: 192 64 192 64;
-        stroke-dashoffset: 0;
-        animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-      }
-
-      /* 3. CIRCLE */
-      .loader.circle:before {
-        /* Circle dot follows rect path logic roughly but simplified here or uses default */
-        animation: dotRect var(--duration)
-          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-      }
-      .loader svg circle {
-        stroke-dasharray: 150 50 150 50;
-        stroke-dashoffset: 75;
-        animation: pathCircle var(--duration)
-          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-      }
-
-      /* KEYFRAMES */
-      @keyframes pathTriangle {
-        33% {
-          stroke-dashoffset: 74;
-        }
-        66% {
-          stroke-dashoffset: 147;
-        }
-        100% {
-          stroke-dashoffset: 221;
-        }
-      }
-      @keyframes dotTriangle {
-        33% {
-          transform: translate(0, 0);
-        }
-        66% {
-          transform: translate(10px, -18px);
-        }
-        100% {
-          transform: translate(-10px, -18px);
-        }
-      }
-
-      @keyframes pathRect {
-        25% {
-          stroke-dashoffset: 64;
-        }
-        50% {
-          stroke-dashoffset: 128;
-        }
-        75% {
-          stroke-dashoffset: 192;
-        }
-        100% {
-          stroke-dashoffset: 256;
-        }
-      }
-      @keyframes dotRect {
-        25% {
-          transform: translate(0, 0);
-        }
-        50% {
-          transform: translate(18px, -18px);
-        }
-        75% {
-          transform: translate(0, -36px);
-        }
-        100% {
-          transform: translate(-18px, -18px);
-        }
-      }
-
-      @keyframes pathCircle {
-        25% {
-          stroke-dashoffset: 125;
-        }
-        50% {
-          stroke-dashoffset: 175;
-        }
-        75% {
-          stroke-dashoffset: 225;
-        }
-        100% {
-          stroke-dashoffset: 275;
-        }
-      }
+      @keyframes pathTriangle { 33% { stroke-dashoffset: 74; } 66% { stroke-dashoffset: 147; } 100% { stroke-dashoffset: 221; } }
+      @keyframes dotTriangle { 33% { transform: translate(0, 0); } 66% { transform: translate(10px, -18px); } 100% { transform: translate(-10px, -18px); } }
+      @keyframes pathRect { 25% { stroke-dashoffset: 64; } 50% { stroke-dashoffset: 128; } 75% { stroke-dashoffset: 192; } 100% { stroke-dashoffset: 256; } }
+      @keyframes dotRect { 25% { transform: translate(0, 0); } 50% { transform: translate(18px, -18px); } 75% { transform: translate(0, -36px); } 100% { transform: translate(-18px, -18px); } }
+      @keyframes pathCircle { 25% { stroke-dashoffset: 125; } 50% { stroke-dashoffset: 175; } 75% { stroke-dashoffset: 225; } 100% { stroke-dashoffset: 275; } }
 
       /* --- CUSTOM SCROLLBAR --- */
-      ::-webkit-scrollbar {
-        width: 12px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #e4ded2;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #f95c4b;
-        border-radius: 10px;
-        border: 3px solid #e4ded2;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #000000;
-      }
+      ::-webkit-scrollbar { width: 12px; }
+      ::-webkit-scrollbar-track { background: #E4DED2; }
+      ::-webkit-scrollbar-thumb { background: #F95C4B; border-radius: 10px; border: 3px solid #E4DED2; }
+      ::-webkit-scrollbar-thumb:hover { background: #000000; }
 
       /* --- COMPONENT STYLES --- */
+      /* Note: .hire-btn class kept for potential future use, though removed from header */
       .hire-btn {
-        width: 10em;
-        height: 3em;
-        border-radius: 30em;
-        font-size: 16px;
-        font-family: "Lato", sans-serif;
-        font-weight: 700;
-        border: none;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        cursor: pointer;
-        color: #000000;
-        background-color: #e4ded2;
+        width: 10em; height: 3em; border-radius: 30em;
+        font-size: 16px; font-family: 'Lato', sans-serif; font-weight: 700; border: none;
+        position: relative; overflow: hidden; z-index: 1;
+        cursor: pointer; color: #000000; background-color: #E4DED2;
         box-shadow: 6px 6px 12px #cbbdb0, -6px -6px 12px #ffffff;
-        transition: color 0.5s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+        transition: color 0.5s; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
       }
       .hire-btn::before {
-        content: "";
-        width: 0;
-        height: 3em;
-        border-radius: 30em;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-image: linear-gradient(to right, #f95c4b 0%, #000000 100%);
-        transition: 0.5s ease;
-        display: block;
-        z-index: -1;
+        content: ""; width: 0; height: 3em; border-radius: 30em;
+        position: absolute; top: 0; left: 0;
+        background-image: linear-gradient(to right, #F95C4B 0%, #000000 100%);
+        transition: 0.5s ease; display: block; z-index: -1;
       }
-      .hire-btn:hover::before {
-        width: 10em;
-      }
-      .hire-btn:hover {
-        color: #f6f4f1;
-      }
+      .hire-btn:hover::before { width: 10em; }
+      .hire-btn:hover { color: #F6F4F1; }
 
       .btn-hero {
-        padding: 0.75rem 2.5rem;
-        font-size: 1.125rem;
-        font-weight: 700;
-        font-family: "Lato", sans-serif;
-        border-radius: 9999px;
-        transition: all 0.3s ease;
+        padding: 0.75rem 2.5rem; font-size: 1.125rem; font-weight: 700;
+        font-family: 'Lato', sans-serif; border-radius: 9999px; transition: all 0.3s ease;
       }
-      .btn-primary {
-        background-color: #f95c4b;
-        color: white;
-        box-shadow: 0 4px 6px -1px rgba(249, 92, 75, 0.3);
-      }
-      .btn-primary:hover {
-        background-color: black;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-      }
-      .btn-secondary {
-        background-color: transparent;
-        color: black;
-        border: 2px solid black;
-      }
-      .btn-secondary:hover {
-        background-color: black;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-      }
+      .btn-primary { background-color: #F95C4B; color: white; box-shadow: 0 4px 6px -1px rgba(249, 92, 75, 0.3); }
+      .btn-primary:hover { background-color: black; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); }
+      .btn-secondary { background-color: transparent; color: black; border: 2px solid black; }
+      .btn-secondary:hover { background-color: black; color: white; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); }
 
-      /* --- SWITCH & VISUALS --- */
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-        flex-shrink: 0;
-      }
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
+      .switch { position: relative; display: inline-block; width: 60px; height: 34px; flex-shrink: 0; }
+      .switch input { opacity: 0; width: 0; height: 0; }
       .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #212121;
-        transition: 0.4s;
-        border-radius: 34px;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-        overflow: hidden;
+        position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+        background-color: #212121; transition: 0.4s; border-radius: 34px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); overflow: hidden; 
       }
       .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: 0.4s;
-        border-radius: 50%;
-        z-index: 2;
+        position: absolute; content: ""; height: 26px; width: 26px;
+        left: 4px; bottom: 4px; background-color: white; transition: 0.4s; border-radius: 50%; z-index: 2;
       }
-      input:checked + .slider {
-        background-color: #f95c4b;
-      }
-      input:checked + .slider:before {
-        transform: translateX(26px);
-        background-color: #f6f4f1;
-      }
-      .star {
-        position: absolute;
-        background-color: white;
-        border-radius: 50%;
-        transition: 0.3s ease;
-        z-index: 1;
-      }
-      .star_1 {
-        top: 8px;
-        left: 35px;
-        width: 3px;
-        height: 3px;
-      }
-      .star_2 {
-        top: 18px;
-        left: 28px;
-        width: 2px;
-        height: 2px;
-      }
-      .star_3 {
-        top: 12px;
-        left: 45px;
-        width: 2px;
-        height: 2px;
-      }
-      input:checked + .slider .star {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      .cloud {
-        position: absolute;
-        left: -20px;
-        bottom: 5px;
-        width: 25px;
-        height: 25px;
-        fill: white;
-        opacity: 0;
-        transition: 0.4s ease;
-        z-index: 1;
-      }
-      input:checked + .slider .cloud {
-        opacity: 1;
-        left: 8px;
-      }
+      input:checked + .slider { background-color: #F95C4B; }
+      input:checked + .slider:before { transform: translateX(26px); background-color: #F6F4F1; }
+      .star { position: absolute; background-color: white; border-radius: 50%; transition: 0.3s ease; z-index: 1; }
+      .star_1 { top: 8px; left: 35px; width: 3px; height: 3px; }
+      .star_2 { top: 18px; left: 28px; width: 2px; height: 2px; }
+      .star_3 { top: 12px; left: 45px; width: 2px; height: 2px; }
+      input:checked + .slider .star { opacity: 0; transform: translateY(10px); }
+      .cloud { position: absolute; left: -20px; bottom: 5px; width: 25px; height: 25px; fill: white; opacity: 0; transition: 0.4s ease; z-index: 1; }
+      input:checked + .slider .cloud { opacity: 1; left: 8px; }
 
-      /* --- NAV ANIMATION --- */
-      .outline {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-      }
-      .rect {
-        stroke-dashoffset: 5;
-        stroke-dasharray: 0 0 10 40 10 40;
-        transition: 0.5s;
-        stroke: #f95c4b;
-      }
-      .nav {
-        position: relative;
-        width: 480px;
-        height: 64px;
-        border-radius: 40px;
-        overflow: hidden;
-      }
+      .outline { position: absolute; inset: 0; pointer-events: none; }
+      .rect { stroke-dashoffset: 5; stroke-dasharray: 0 0 10 40 10 40; transition: 0.5s; stroke: #F95C4B; }
+      .nav { position: relative; width: 480px; height: 64px; border-radius: 40px; overflow: hidden; }
       .container {
-        position: absolute;
-        inset: 0;
-        background: #e4ded2;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0.5em;
-        border-radius: 40px;
+        position: absolute; inset: 0; background: #E4DED2;
+        display: flex; flex-direction: row; justify-content: space-around;
+        align-items: center; padding: 0.5em; border-radius: 40px;
       }
-      .nav-btn {
-        padding: 0.5em 1.5em;
-        text-decoration: none;
-        cursor: pointer;
-        transition: 0.1s;
-        font-weight: 700;
-        font-family: "Lato", sans-serif;
-        font-size: 1.1rem;
-        z-index: 10;
-        color: #000000;
-      }
-      .nav-btn:hover {
-        background: #f95c4b;
-        border-radius: 10px;
-        color: #f6f4f1;
-      }
-      .container:hover .outline .rect {
-        transition: 999s;
-        stroke-dashoffset: 1;
-        stroke-dasharray: 0;
-      }
-      .nav-btn:hover ~ .outline .rect {
-        stroke-dashoffset: 0;
-        stroke-dasharray: 0 0 10 40 10 40;
-        transition: 0.5s !important;
-      }
+      .nav-btn { padding: 0.5em 1.5em; text-decoration: none; cursor: pointer; transition: 0.1s; font-weight: 700; font-family: 'Lato', sans-serif; font-size: 1.1rem; z-index: 10; color: #000000; }
+      .nav-btn:hover { background: #F95C4B; border-radius: 10px; color: #F6F4F1; }
+      .container:hover .outline .rect { transition: 999s; stroke-dashoffset: 1; stroke-dasharray: 0; }
+      .nav-btn:hover ~ .outline .rect { stroke-dashoffset: 0; stroke-dasharray: 0 0 10 40 10 40; transition: 0.5s !important; }
 
-      /* --- MOBILE TOGGLE --- */
-      #menu-toggle {
-        display: none;
-      }
-      .toggle {
-        position: relative;
-        width: 44px;
-        height: 44px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        transition-duration: 0.3s;
-      }
-      .bars {
-        width: 100%;
-        height: 4px;
-        background-color: #000000;
-        border-radius: 5px;
-        transition-duration: 0.3s;
-      }
-      #menu-toggle:checked + .toggle #bar2 {
-        transform: translateY(14px) rotate(60deg);
-        margin-left: 0;
-        transform-origin: right;
-        transition-duration: 0.3s;
-        z-index: 2;
-      }
-      #menu-toggle:checked + .toggle #bar1 {
-        transform: translateY(28px) rotate(-60deg);
-        transition-duration: 0.3s;
-        transform-origin: left;
-        z-index: 1;
-      }
-      #menu-toggle:checked + .toggle {
-        transform: rotate(-90deg);
-      }
+      #menu-toggle { display: none; }
+      .toggle { position: relative; width: 44px; height: 44px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition-duration: 0.3s; }
+      .bars { width: 100%; height: 4px; background-color: #000000; border-radius: 5px; transition-duration: 0.3s; }
+      #menu-toggle:checked + .toggle #bar2 { transform: translateY(14px) rotate(60deg); margin-left: 0; transform-origin: right; transition-duration: 0.3s; z-index: 2; }
+      #menu-toggle:checked + .toggle #bar1 { transform: translateY(28px) rotate(-60deg); transition-duration: 0.3s; transform-origin: left; z-index: 1; }
+      #menu-toggle:checked + .toggle { transform: rotate(-90deg); }
 
-      /* --- GSAP INITIAL STATES --- */
-      .gsap-header {
-        opacity: 0;
-        visibility: hidden;
-      }
-      .gsap-hero-text {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      .gsap-hero-img {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      #mobile-menu {
-        visibility: hidden;
-        opacity: 0;
-      }
+      /* GSAP STATES */
+      .gsap-header { opacity: 0; visibility: hidden; }
+      .gsap-hero-text { opacity: 0; transform: translateY(50px); }
+      .gsap-hero-img { opacity: 0; transform: scale(0.8); }
+      #mobile-menu { visibility: hidden; opacity: 0; }
+      
+      .gsap-reveal { opacity: 0; transform: translateY(30px); }
     </style>
   </head>
-
-  <body
-    class="bg-paper min-h-screen pt-4 sm:pt-10 font-sans text-black overflow-x-hidden"
-  >
+  
+  <body class="bg-paper min-h-screen pt-4 sm:pt-10 font-sans text-black overflow-x-hidden">
+    
     <div id="preloader">
       <div class="loader-wrapper">
-        <div class="loader triangle">
-          <svg viewBox="0 0 86 80">
-            <polygon points="43 8 79 72 7 72"></polygon>
-          </svg>
-        </div>
-
-        <div class="loader rect">
-          <svg viewBox="0 0 80 80">
-            <rect height="64" width="64" y="8" x="8"></rect>
-          </svg>
-        </div>
-
-        <div class="loader circle">
-          <svg viewBox="0 0 80 80">
-            <circle r="32" cy="40" cx="40"></circle>
-          </svg>
-        </div>
+        <div class="loader triangle"><svg viewBox="0 0 86 80"><polygon points="43 8 79 72 7 72"></polygon></svg></div>
+        <div class="loader rect"><svg viewBox="0 0 80 80"><rect height="64" width="64" y="8" x="8"></rect></svg></div>
+        <div class="loader circle"><svg viewBox="0 0 80 80"><circle r="32" cy="40" cx="40"></circle></svg></div>
       </div>
     </div>
 
-    <header
-      class="gsap-header fixed top-4 left-0 right-0 mx-auto flex w-[95%] max-w-7xl items-center justify-between rounded-full bg-paper px-8 py-4 shadow-xl z-50"
-    >
+    <header class="gsap-header fixed top-4 left-0 right-0 mx-auto flex w-[95%] max-w-7xl items-center justify-between rounded-full bg-paper px-8 py-4 shadow-xl z-50">
       <div class="logo shrink-0">
-        <span class="font-serif text-2xl font-black tracking-widest text-black"
-          >&lt;SRK/&gt;</span
-        >
+        <span class="font-serif text-2xl font-black tracking-widest text-black">&lt;SRK/&gt;</span>
       </div>
 
       <div class="nav hidden lg:block">
@@ -560,26 +184,8 @@
           <a href="#about" class="nav-btn">About</a>
           <a href="#projects" class="nav-btn">Projects</a>
           <a href="#contact" class="nav-btn">Contact</a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 480 64"
-            height="64"
-            width="480"
-            preserveAspectRatio="none"
-            class="outline"
-          >
-            <rect
-              stroke-width="3"
-              fill="transparent"
-              height="64"
-              width="480"
-              y="0"
-              x="0"
-              pathLength="100"
-              class="rect"
-              rx="30"
-              ry="30"
-            ></rect>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 64" height="64" width="480" preserveAspectRatio="none" class="outline">
+            <rect stroke-width="3" fill="transparent" height="64" width="480" y="0" x="0" pathLength="100" class="rect" rx="30" ry="30"></rect>
           </svg>
         </div>
       </div>
@@ -587,36 +193,18 @@
       <div class="flex items-center gap-6">
         <div class="dark-mode hidden lg:flex items-center">
           <label class="switch" for="checkbox-desktop">
-            <input
-              type="checkbox"
-              id="checkbox-desktop"
-              title="Toggle dark mode"
-            />
+            <input type="checkbox" id="checkbox-desktop" title="Toggle dark mode" />
             <span class="slider">
-              <div class="star star_1"></div>
-              <div class="star star_2"></div>
-              <div class="star star_3"></div>
-              <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-                <path
-                  transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                  fill="#fff"
-                  d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-                ></path>
-              </svg>
+              <div class="star star_1"></div><div class="star star_2"></div><div class="star star_3"></div>
+              <svg viewBox="0 0 16 16" class="cloud_1 cloud"><path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path></svg>
             </span>
           </label>
         </div>
-
-        <div class="hidden lg:block">
-          <button type="button" class="hire-btn">Hire Me</button>
-        </div>
-
+        
         <div class="lg:hidden block">
           <input id="menu-toggle" type="checkbox" />
           <label class="toggle" for="menu-toggle">
-            <div id="bar1" class="bars"></div>
-            <div id="bar2" class="bars"></div>
-            <div id="bar3" class="bars"></div>
+            <div id="bar1" class="bars"></div><div id="bar2" class="bars"></div><div id="bar3" class="bars"></div>
           </label>
         </div>
       </div>
@@ -624,52 +212,19 @@
 
     <div id="mobile-menu" class="fixed inset-0 z-40 w-full h-full bg-paper">
       <nav class="flex h-full flex-col items-center justify-center gap-6">
-        <a
-          href="#home"
-          class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
-          >Home</a
-        >
-        <a
-          href="#about"
-          class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
-          >About</a
-        >
-        <a
-          href="#projects"
-          class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
-          >Projects</a
-        >
-        <a
-          href="#contact"
-          class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
-          >Contact</a
-        >
-
+        <a href="#home" class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors">About</a>
+        <a href="#projects" class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors">Projects</a>
+        <a href="#contact" class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors">Contact</a>
+        
         <div class="mobile-extras flex flex-col items-center gap-6 mt-6">
-          <button type="button" class="hire-btn scale-110">Hire Me</button>
-
           <div class="flex items-center gap-3">
-            <span
-              class="font-bold font-sans text-gray-500 uppercase tracking-widest text-sm"
-              >Dark Mode</span
-            >
-            <label class="switch" for="checkbox-mobile">
-              <input
-                type="checkbox"
-                id="checkbox-mobile"
-                title="Toggle dark mode"
-              />
+             <span class="font-bold font-sans text-gray-500 uppercase tracking-widest text-sm">Dark Mode</span>
+             <label class="switch" for="checkbox-mobile">
+              <input type="checkbox" id="checkbox-mobile" title="Toggle dark mode" />
               <span class="slider">
-                <div class="star star_1"></div>
-                <div class="star star_2"></div>
-                <div class="star star_3"></div>
-                <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-                  <path
-                    transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                    fill="#fff"
-                    d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-                  ></path>
-                </svg>
+                <div class="star star_1"></div><div class="star star_2"></div><div class="star star_3"></div>
+                <svg viewBox="0 0 16 16" class="cloud_1 cloud"><path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path></svg>
               </span>
             </label>
           </div>
@@ -677,92 +232,168 @@
       </nav>
     </div>
 
-    <section
-      class="site-banner pt-32 lg:pt-0 min-h-screen flex items-center justify-center bg-paper px-4 md:px-8 lg:px-16"
-      id="home"
-    >
+    <section class="site-banner pt-32 lg:pt-0 min-h-screen flex items-center justify-center bg-paper px-4 md:px-8 lg:px-16" id="home">
       <div class="max-w-7xl mx-auto w-full">
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-        >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="site-title text-center lg:text-left order-2 lg:order-1">
-            <h3
-              class="gsap-hero-text font-serif italic text-3xl font-bold text-coral mb-2 tracking-wide"
-            >
-              Hello, I'm
-            </h3>
-            <h1
-              class="gsap-hero-text font-serif text-6xl sm:text-7xl lg:text-8xl font-black text-black mb-3 leading-tight tracking-tight"
-            >
-              Shahrukh <br />
-              Khan
-            </h1>
-            <h4
-              class="gsap-hero-text font-serif text-xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 italic"
-            >
-              Full Stack Software Engineer
-            </h4>
-            <p
-              class="gsap-hero-text font-sans text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal"
-            >
-              I build clean, responsive, and user-friendly web applications
-              using modern technologies. Passionate about creating seamless user
-              experiences.
+            <h3 class="gsap-hero-text font-serif italic text-3xl font-bold text-coral mb-2 tracking-wide">Hello, I'm</h3>
+            <h1 class="gsap-hero-text font-serif text-6xl sm:text-7xl lg:text-8xl font-black text-black mb-3 leading-tight tracking-tight">Shahrukh <br /> Khan</h1>
+            <h4 class="gsap-hero-text font-serif text-xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 italic">Full Stack Software Engineer</h4>
+            <p class="gsap-hero-text font-sans text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal">
+              I build clean, responsive, and user-friendly web applications using modern technologies. Passionate about creating seamless user experiences.
             </p>
-            <div
-              class="gsap-hero-text flex flex-wrap gap-4 mb-10 justify-center lg:justify-start"
-            >
+            <div class="gsap-hero-text flex flex-wrap gap-4 mb-10 justify-center lg:justify-start">
               <a href="#contact" class="btn-hero btn-primary">Hire Me</a>
-              <a
-                href="./resume.pdf"
-                target="_blank"
-                class="btn-hero btn-secondary"
-                >Download CV</a
-              >
+              <a href="./resume.pdf" target="_blank" class="btn-hero btn-secondary">Download CV</a>
             </div>
-            <div
-              class="gsap-hero-text flex flex-col lg:flex-row items-center gap-4 justify-center lg:justify-start"
-            >
-              <span
-                class="font-sans text-sm font-bold text-gray-500 uppercase tracking-widest border-b-2 border-stone pb-1"
-                >Tech Stack</span
-              >
+            <div class="gsap-hero-text flex flex-col lg:flex-row items-center gap-4 justify-center lg:justify-start">
+              <span class="font-sans text-sm font-bold text-gray-500 uppercase tracking-widest border-b-2 border-stone pb-1">Tech Stack</span>
               <div class="flex gap-5 mt-2 lg:mt-0">
-                <i
-                  class="devicon-javascript-plain colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"
-                ></i>
-                <i
-                  class="devicon-react-original colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"
-                ></i>
-                <i
-                  class="devicon-nodejs-plain colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"
-                ></i>
-                <i
-                  class="devicon-mongodb-plain colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"
-                ></i>
-                <i
-                  class="devicon-tailwindcss-original colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"
-                ></i>
+                <i class="devicon-javascript-plain colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"></i>
+                <i class="devicon-react-original colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"></i>
+                <i class="devicon-nodejs-plain colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"></i>
+                <i class="devicon-mongodb-plain colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"></i>
+                <i class="devicon-tailwindcss-original colored text-4xl hover:-translate-y-1 transition-transform cursor-pointer"></i>
               </div>
             </div>
           </div>
-
-          <div
-            class="banner-image relative flex justify-center lg:justify-end mt-4 lg:mt-0 order-1 lg:order-2"
-          >
-            <div
-              class="gsap-hero-img absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-gradient-to-tr from-coral/20 to-stone/50 rounded-full blur-3xl -z-0"
-            ></div>
-            <div
-              class="gsap-hero-img relative z-10 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full p-2 bg-paper shadow-2xl transition-all duration-500 hover:scale-[1.02]"
-            >
-              <img
-                loading="lazy"
-                src="assets/carshoot.webp"
-                alt="Shahrukh Khan"
-                class="w-full h-full rounded-full object-cover border-4 border-stone"
-              />
+          <div class="banner-image relative flex justify-center lg:justify-end mt-4 lg:mt-0 order-1 lg:order-2">
+            <div class="gsap-hero-img absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-gradient-to-tr from-coral/20 to-stone/50 rounded-full blur-3xl -z-0"></div>
+            <div class="gsap-hero-img relative z-10 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full p-2 bg-paper shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <img loading="lazy" src="./image_1.png" alt="Shahrukh Khan" class="w-full h-full rounded-full object-cover border-4 border-stone"/>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 md:px-8 lg:px-16 bg-white relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div class="gsap-reveal">
+            <h2 class="font-serif text-5xl font-black text-black mb-6">About Me</h2>
+            <div class="h-1 w-24 bg-coral mb-8"></div>
+            <p class="font-sans text-xl text-gray-600 mb-6 leading-relaxed">
+              I am a <span class="text-coral font-bold">Junior Full Stack Developer</span> with a passion for building digital experiences. Over the last <span class="font-bold text-black">6 months</span>, I have dedicated myself to mastering the MERN stack and frontend artistry.
+            </p>
+            <p class="font-sans text-lg text-gray-600 mb-6 leading-relaxed">
+              My journey is fueled by curiosity. From building pixel-perfect UIs with <span class="font-bold text-stone-600">Tailwind & GSAP</span> to architectural logic in <span class="font-bold text-stone-600">React & Node.js</span>, I treat every line of code as a step towards excellence.
+            </p>
+            <p class="font-sans text-lg text-gray-600 leading-relaxed">
+              I may be early in my career, but my drive to innovate is boundless. I am currently open to internship and junior developer roles where I can contribute and grow.
+            </p>
+          </div>
+          <div class="gsap-reveal grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-8 bg-paper rounded-2xl border border-stone/50 hover:border-coral transition-colors duration-300">
+              <h3 class="font-serif text-4xl font-bold text-black mb-2">06+</h3>
+              <span class="font-sans text-gray-500 uppercase tracking-wider text-sm font-bold">Months Experience</span>
+            </div>
+            <div class="p-8 bg-paper rounded-2xl border border-stone/50 hover:border-coral transition-colors duration-300">
+              <h3 class="font-serif text-4xl font-bold text-black mb-2">10+</h3>
+              <span class="font-sans text-gray-500 uppercase tracking-wider text-sm font-bold">Projects Built</span>
+            </div>
+            <div class="p-8 bg-paper rounded-2xl border border-stone/50 hover:border-coral transition-colors duration-300 col-span-1 sm:col-span-2">
+              <h3 class="font-serif text-2xl font-bold text-black mb-4">Current Focus</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white border border-stone rounded-full text-sm font-bold text-gray-600">Next.js</span>
+                <span class="px-3 py-1 bg-white border border-stone rounded-full text-sm font-bold text-gray-600">TypeScript</span>
+                <span class="px-3 py-1 bg-white border border-stone rounded-full text-sm font-bold text-gray-600">Advanced GSAP</span>
+                <span class="px-3 py-1 bg-white border border-stone rounded-full text-sm font-bold text-gray-600">Backend System Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 md:px-8 lg:px-16 bg-paper relative z-10 border-t border-stone/30">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16 lg:mb-24 gsap-reveal">
+           <h2 class="font-serif text-5xl md:text-7xl font-black text-black mb-4">Selected Works</h2>
+           <div class="h-1 w-24 bg-coral"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+           <div class="project-card group cursor-pointer gsap-reveal">
+              <div class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]">
+                 <img src="https://placehold.co/800x600/E4DED2/000000?text=Reelify" alt="Reelify Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+              </div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors">Reelify</h3>
+                <span class="font-sans font-bold text-5xl text-stone/50 group-hover:text-stone transition-colors">01</span>
+              </div>
+              <p class="font-sans text-lg text-gray-600 mb-4 line-clamp-2">
+                A Reels-style video feed built without frameworks, using Cloudinary for media and IntersectionObserver for performance.
+              </p>
+              <div class="flex gap-2 flex-wrap">
+                 <span class="px-4 py-1 bg-stone text-black text-xs font-bold uppercase tracking-wider rounded-full">HTML/CSS</span>
+                 <span class="px-4 py-1 bg-stone text-black text-xs font-bold uppercase tracking-wider rounded-full">JS</span>
+                 <span class="px-4 py-1 bg-stone text-black text-xs font-bold uppercase tracking-wider rounded-full">Cloudinary</span>
+              </div>
+           </div>
+           <div class="project-card group cursor-pointer md:mt-20 gsap-reveal">
+              <div class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]">
+                 <img src="https://placehold.co/800x600/E4DED2/000000?text=E-Commerce" alt="E-Commerce" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+              </div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors">Shop Dashboard</h3>
+                <span class="font-sans font-bold text-5xl text-stone/50 group-hover:text-stone transition-colors">02</span>
+              </div>
+              <p class="font-sans text-lg text-gray-600 mb-4 line-clamp-2">
+                A comprehensive admin dashboard for managing products, orders, and customer analytics with real-time data updates.
+              </p>
+              <div class="flex gap-2 flex-wrap">
+                 <span class="px-4 py-1 bg-stone text-black text-xs font-bold uppercase tracking-wider rounded-full">React</span>
+                 <span class="px-4 py-1 bg-stone text-black text-xs font-bold uppercase tracking-wider rounded-full">Tailwind</span>
+              </div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-4 md:px-8 lg:px-16 bg-white relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16 gsap-reveal">
+          <h2 class="font-serif text-5xl font-black text-black mb-4">Experience</h2>
+          <div class="h-1 w-24 bg-coral"></div>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="gsap-reveal border-l-2 border-stone pl-8 py-2 relative hover:border-coral transition-colors duration-300 group">
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-stone group-hover:bg-coral transition-colors duration-300"></div>
+            <span class="font-sans text-sm font-bold text-coral uppercase tracking-widest mb-2 block">Aug 2025 - Present</span>
+            <h3 class="font-serif text-3xl font-bold text-black mb-1">Junior Web Developer Intern</h3>
+            <h4 class="font-sans text-lg text-gray-500 font-bold mb-4">Sheryians Coding School</h4>
+            <p class="font-sans text-lg text-gray-600 max-w-3xl leading-relaxed">
+              Intensive full-stack training and project development. Collaborated on building responsive web applications, mastering animation libraries like GSAP, and integrating backend databases.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 px-4 md:px-8 lg:px-16 bg-black text-paper relative z-10">
+      <div class="max-w-7xl mx-auto text-center">
+        <div class="gsap-reveal">
+          <h2 class="font-serif text-2xl md:text-3xl text-stone mb-6 italic">What's Next?</h2>
+          <h1 class="font-serif text-5xl md:text-8xl font-black mb-10 leading-tight">
+            Let's create something<br/><span class="text-coral">extraordinary.</span>
+          </h1>
+          <p class="font-sans text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12">
+            I am currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.
+          </p>
+          <a href="mailto:hello@shahrukh.dev" class="inline-block px-10 py-4 bg-coral text-white font-sans font-bold text-xl rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-coral/50">
+            Say Hello
+          </a>
+        </div>
+        
+        <div class="mt-24 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+          <span class="font-sans text-gray-500 text-sm">© 2026 Shahrukh Khan. All Rights Reserved.</span>
+          <div class="flex gap-6">
+            <a href="#" class="text-gray-400 hover:text-coral transition-colors font-bold">LinkedIn</a>
+            <a href="#" class="text-gray-400 hover:text-coral transition-colors font-bold">GitHub</a>
+            <a href="#" class="text-gray-400 hover:text-coral transition-colors font-bold">Twitter</a>
           </div>
         </div>
       </div>
@@ -771,85 +402,49 @@
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+    
     <script>
       // 1. LENIS
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        smooth: true,
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+      const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), direction: 'vertical', smooth: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
       requestAnimationFrame(raf);
 
-      // 2. GSAP
+      // 2. GSAP INIT
       document.addEventListener("DOMContentLoaded", (event) => {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Preloader & Hero
         const tl = gsap.timeline();
-        // Delay 2s to show loader, then fade out
-        tl.to("#preloader", {
-          opacity: 0,
-          duration: 0.8,
-          delay: 2,
-          onComplete: () => {
-            document.getElementById("preloader").style.display = "none";
-          },
-        })
-          .to(
-            ".gsap-header",
-            { y: 0, opacity: 1, autoAlpha: 1, duration: 1, ease: "power3.out" },
-            "-=0.2"
-          )
-          .to(
-            ".gsap-hero-text",
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-              stagger: 0.15,
-              ease: "power3.out",
+        tl.to("#preloader", { opacity: 0, duration: 0.8, delay: 2, onComplete: () => { document.getElementById("preloader").style.display = "none"; } })
+          .to(".gsap-header", { y: 0, opacity: 1, autoAlpha: 1, duration: 1, ease: "power3.out" }, "-=0.2")
+          .to(".gsap-hero-text", { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out" }, "-=0.5")
+          .to(".gsap-hero-img", { scale: 1, opacity: 1, duration: 1.2, ease: "elastic.out(1, 0.75)" }, "-=1.2");
+
+        // Scroll Reveal Animations for Sections
+        gsap.utils.toArray('.gsap-reveal').forEach(element => {
+          gsap.to(element, {
+            scrollTrigger: {
+              trigger: element,
+              start: "top 85%", // Trigger when element is near bottom of view
+              toggleActions: "play none none reverse"
             },
-            "-=0.5"
-          )
-          .to(
-            ".gsap-hero-img",
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 1.2,
-              ease: "elastic.out(1, 0.75)",
-            },
-            "-=1.2"
-          );
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out"
+          });
+        });
       });
 
       // 3. MOBILE MENU
       const menuCheckbox = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
-      const navLinks = document.querySelectorAll("#mobile-menu a");
-
+      const navLinks = document.querySelectorAll('#mobile-menu a');
       const menuTl = gsap.timeline({ paused: true });
-      menuTl
-        .to("#mobile-menu", { autoAlpha: 1, duration: 0.4, ease: "power2.out" })
-        .from(
-          ".mobile-nav-link",
-          {
-            y: 50,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.5,
-            ease: "power3.out",
-          },
-          "-=0.2"
-        )
-        .from(
-          ".mobile-extras",
-          { y: 20, opacity: 0, duration: 0.4, ease: "power3.out" },
-          "-=0.3"
-        );
+      
+      menuTl.to("#mobile-menu", { autoAlpha: 1, duration: 0.4, ease: "power2.out" })
+            .from(".mobile-nav-link", { y: 50, opacity: 0, stagger: 0.1, duration: 0.5, ease: "power3.out" }, "-=0.2")
+            .from(".mobile-extras", { y: 20, opacity: 0, duration: 0.4, ease: "power3.out" }, "-=0.3");
 
       menuCheckbox.addEventListener("change", function () {
         if (this.checked) {
@@ -861,8 +456,8 @@
         }
       });
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
           menuCheckbox.checked = false;
           lenis.start();
           menuTl.reverse();
