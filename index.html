@@ -165,6 +165,17 @@
       }
 
       /* --- PRELOADER --- */
+      /* Block all interactions while loading */
+      body.is-loading {
+        overflow: hidden !important;
+        pointer-events: none !important;
+        user-select: none !important;
+      }
+
+      body.is-loading * {
+        pointer-events: none !important;
+      }
+
       #preloader {
         position: fixed;
         inset: 0;
@@ -176,6 +187,7 @@
         gap: 2rem;
         opacity: 1;
         visibility: visible;
+        pointer-events: auto !important;
       }
       .loader-wrapper {
         transform: scale(1.2);
@@ -1641,6 +1653,10 @@
       document.addEventListener("DOMContentLoaded", (event) => {
         gsap.registerPlugin(ScrollTrigger);
 
+        // Add loading class to body initially
+        document.body.classList.add("is-loading");
+        lenis.stop(); // Stop smooth scroll during loading
+
         // Preloader & Hero
         const tl = gsap.timeline();
         tl.to("#preloader", {
@@ -1649,6 +1665,8 @@
           delay: 2,
           onComplete: () => {
             document.getElementById("preloader").style.display = "none";
+            document.body.classList.remove("is-loading"); // Enable interactions
+            lenis.start(); // Start smooth scroll
           },
         })
           .to(
