@@ -1,0 +1,314 @@
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+/* --- Hire Button --- */
+.hire-btn {
+  width: 10em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  color: #000000;
+  background-color: #e4ded2;
+  box-shadow: 6px 6px 12px #cbbdb0, -6px -6px 12px #ffffff;
+  transition: color 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hire-btn::before {
+  content: "";
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #f95c4b 0%, #000000 100%);
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.hire-btn:hover::before {
+  width: 10em;
+}
+
+.hire-btn:hover {
+  color: #f6f4f1;
+}
+
+/* --- Hero Buttons --- */
+.btn-hero {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #f95c4b;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(249, 92, 75, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+}
+
+.btn-secondary:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Theme Toggle Switch --- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #212121;
+  transition: 0.4s;
+  border-radius: 34px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+input:checked + .slider {
+  background-color: #f95c4b;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: #f6f4f1;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.star_1 {
+  top: 8px;
+  left: 35px;
+  width: 3px;
+  height: 3px;
+}
+
+.star_2 {
+  top: 18px;
+  left: 28px;
+  width: 2px;
+  height: 2px;
+}
+
+.star_3 {
+  top: 12px;
+  left: 45px;
+  width: 2px;
+  height: 2px;
+}
+
+input:checked + .slider .star {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.cloud {
+  position: absolute;
+  left: -20px;
+  bottom: 5px;
+  width: 25px;
+  height: 25px;
+  fill: white;
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+input:checked + .slider .cloud {
+  opacity: 1;
+  left: 8px;
+}
+
+/* --- Navigation --- */
+.outline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.rect {
+  stroke-dashoffset: 5;
+  stroke-dasharray: 0 0 10 40 10 40;
+  transition: 0.5s;
+  stroke: #f95c4b;
+}
+
+.nav {
+  position: relative;
+  width: 480px;
+  height: 64px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  inset: 0;
+  background: #e4ded2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5em;
+  border-radius: 40px;
+}
+
+.nav-btn {
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.1s;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  z-index: 10;
+  color: #000000;
+}
+
+.nav-btn:hover {
+  background: #f95c4b;
+  border-radius: 10px;
+  color: #f6f4f1;
+}
+
+.container:hover .outline .rect {
+  transition: 999999s;
+  stroke-dashoffset: 1;
+  stroke-dasharray: 0;
+}
+
+.nav-btn:nth-child(1):hover ~ .outline .rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 2 8 73.3 8 10.7;
+}
+
+.nav-btn:nth-child(2):hover ~ .outline .rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 12.6 9.5 49.3 9.5 31.6;
+}
+
+.nav-btn:nth-child(3):hover ~ .outline .rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 24.5 8.5 27.5 8.5 55.5;
+}
+
+.nav-btn:nth-child(4):hover ~ .outline .rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 34.7 6.9 10.2 6.9 76;
+}
+
+.nav-btn:hover ~ .outline .rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 0 10 40 10 40;
+  transition: 0.5s !important;
+}
+
+/* --- Mobile Menu Toggle --- */
+#menu-toggle {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: 0.3s;
+}
+
+.bars {
+  width: 100%;
+  height: 4px;
+  background-color: #000000;
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+
+#menu-toggle:checked + .toggle #bar2 {
+  transform: translateY(14px) rotate(60deg);
+  margin-left: 0;
+  transform-origin: right;
+  transition-duration: 0.3s;
+  z-index: 2;
+}
+
+#menu-toggle:checked + .toggle #bar1 {
+  transform: translateY(28px) rotate(-60deg);
+  transition-duration: 0.3s;
+  transform-origin: left;
+  z-index: 1;
+}
+
+#menu-toggle:checked + .toggle {
+  transform: rotate(-90deg);
+}

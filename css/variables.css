@@ -1,0 +1,35 @@
+/* ============================================
+   CSS VARIABLES FOR THEMING
+   ============================================ */
+
+:root {
+  --bg-primary: #f6f4f1;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e4ded2;
+  --text-primary: #000000;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --accent: #f95c4b;
+  --border-color: rgba(228, 222, 210, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --preloader-bg: #f6f4f1;
+  --scrollbar-track: #e4ded2;
+  --scrollbar-thumb: #f95c4b;
+}
+
+html.dark {
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #f6f4f1;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --accent: #f95c4b;
+  --border-color: rgba(75, 75, 75, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --card-bg: #1a1a1a;
+  --preloader-bg: #0f0f0f;
+  --scrollbar-track: #2a2a2a;
+  --scrollbar-thumb: #f95c4b;
+}

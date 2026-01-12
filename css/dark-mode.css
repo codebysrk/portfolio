@@ -1,0 +1,208 @@
+/* ============================================
+   DARK MODE OVERRIDES
+   ============================================ */
+
+html.dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html.dark #preloader {
+  background-color: var(--preloader-bg);
+}
+
+html.dark .loader {
+  --path: #f6f4f1;
+}
+
+html.dark header {
+  background-color: var(--bg-secondary) !important;
+  box-shadow: 0 4px 6px -1px var(--shadow-color);
+}
+
+html.dark .logo span {
+  color: var(--text-primary);
+}
+
+html.dark .nav .container {
+  background-color: var(--bg-tertiary);
+}
+
+html.dark .nav-btn {
+  color: var(--text-primary);
+}
+
+html.dark .nav-btn:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+html.dark .bars {
+  background-color: var(--text-primary);
+}
+
+html.dark #mobile-menu {
+  background-color: var(--bg-primary);
+}
+
+html.dark .mobile-nav-link {
+  color: var(--text-primary);
+}
+
+html.dark .mobile-nav-link:hover {
+  color: var(--accent);
+}
+
+html.dark .site-banner {
+  background-color: var(--bg-primary);
+}
+
+html.dark .site-title h1,
+html.dark .site-title h3,
+html.dark .site-title h4 {
+  color: var(--text-primary);
+}
+
+html.dark .site-title h3 {
+  color: var(--accent);
+}
+
+html.dark .site-title h4 {
+  color: var(--text-secondary);
+}
+
+html.dark .site-title p {
+  color: var(--text-muted);
+}
+
+html.dark #about {
+  background-color: var(--bg-secondary);
+}
+
+html.dark #about h2,
+html.dark #about h3 {
+  color: var(--text-primary);
+}
+
+html.dark #about p {
+  color: var(--text-secondary);
+}
+
+html.dark #about .border-stone\/50 {
+  border-color: var(--border-color);
+  background-color: var(--bg-primary);
+}
+
+html.dark #about .border-stone\/50:hover {
+  border-color: var(--accent);
+}
+
+html.dark #about span {
+  color: var(--text-muted);
+}
+
+html.dark #projects {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+html.dark #projects h2,
+html.dark #projects h3 {
+  color: var(--text-primary);
+}
+
+html.dark #projects p {
+  color: var(--text-secondary);
+}
+
+html.dark .project-card .border-stone {
+  border-color: var(--bg-tertiary);
+}
+
+html.dark .project-card span.bg-stone {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+html.dark section[class*="bg-white"] {
+  background-color: var(--bg-secondary) !important;
+}
+
+html.dark section[class*="bg-white"] h2,
+html.dark section[class*="bg-white"] h3,
+html.dark section[class*="bg-white"] h4 {
+  color: var(--text-primary);
+}
+
+html.dark section[class*="bg-white"] p {
+  color: var(--text-secondary);
+}
+
+html.dark .border-stone {
+  border-color: var(--bg-tertiary) !important;
+}
+
+html.dark .hire-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3),
+    -6px -6px 12px rgba(50, 50, 50, 0.2);
+}
+
+html.dark .hire-btn:hover {
+  color: var(--bg-primary);
+}
+
+html.dark .banner-image .bg-paper {
+  background-color: var(--bg-secondary);
+}
+
+html.dark .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+html.dark .text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+html.dark .text-black {
+  color: var(--text-primary) !important;
+}
+
+html.dark .bg-paper {
+  background-color: var(--bg-primary) !important;
+}
+
+html.dark .bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+html.dark .bg-stone {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Button Dark Mode */
+html.dark .btn-secondary {
+  color: white;
+  border-color: white;
+}
+
+html.dark .btn-secondary:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Case Study Section Dark Mode */
+html.dark .case-study-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-color: var(--border-color);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-color: var(--scrollbar-track);
+}
