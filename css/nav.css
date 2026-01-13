@@ -231,3 +231,8 @@ html.dark .wrap input[class*="rd-"]:checked + label {
 .rd-5:checked ~ .slidebar {
   transform: translateX(400%) scaleX(1);
 }
+
+.rd-6:checked ~ .bar,
+.rd-6:checked ~ .slidebar {
+  transform: translateX(500%) scaleX(1);
+}

@@ -371,6 +371,7 @@ function initActiveNav() {
       skills: "tab-3",
       projects: "tab-4",
       experience: "tab-5",
+      contact: "tab-6",
     };
 
     if (current && sectionMap[current]) {
@@ -414,12 +415,27 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
     // Handle #contact specifically for the sticky footer reveal
     if (targetId === "#contact") {
+      const contactRadio = document.getElementById("tab-6");
+      if (contactRadio) contactRadio.checked = true;
       lenis.scrollTo("bottom", {
         offset: 0,
         duration: 2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
       return;
+    }
+
+    // Sync radio buttons for other sections immediately
+    const sectionMap = {
+      "#home": "tab-1",
+      "#about": "tab-2",
+      "#skills": "tab-3",
+      "#projects": "tab-4",
+      "#experience": "tab-5",
+    };
+    if (sectionMap[targetId]) {
+      const radio = document.getElementById(sectionMap[targetId]);
+      if (radio) radio.checked = true;
     }
 
     const targetElement = document.querySelector(targetId);
