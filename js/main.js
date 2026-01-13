@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       code: "https://github.com/codebysrk/reelify",
       video: "./assets/projects/reelify.webm",
       poster: "./assets/projects/thumb-reelify.png",
-      address: "github.com/codebysrk/reelify",
+      address: "reelify.com",
       tab: "Reelify",
     },
     {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       code: "https://github.com/codebysrk/Sheryians-clone",
       video: "./assets/projects/shery-clone.webm",
       poster: "./assets/projects/thumb-sheryians.png",
-      address: "sheryians.com/courses",
+      address: "sheryians.com",
       tab: "Sheryians",
     },
     {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     },
     {
       id: "portfolio",
-      title: "Portfolio",
+      title: "Shahrukh Khan | Full Stack Developer",
       number: "06",
       desc: "Personal portfolio with GSAP animations, smooth scroll, and premium design.",
       tags: ["Tailwind", "GSAP", "Lenis"],
