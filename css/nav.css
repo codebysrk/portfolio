@@ -197,6 +197,7 @@ html.dark .wrap input[class*="rd-"]:checked + label {
 
 .slidebar {
   position: absolute;
+  top: var(--p-y);
   height: calc(100% - (var(--p-y) * 2));
   width: var(--w-label);
   border-radius: 9999px;
