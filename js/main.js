@@ -170,5 +170,23 @@ if (darkModeMobile) {
   });
 }
 
+// Listen for system theme changes in real-time
+const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+systemThemeQuery.addEventListener("change", (e) => {
+  // Only auto-switch if user hasn't manually set a preference
+  const savedTheme = localStorage.getItem("theme");
+  if (!savedTheme) {
+    const isDark = e.matches;
+    if (isDark) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+    // Sync toggles
+    if (darkModeDesktop) darkModeDesktop.checked = isDark;
+    if (darkModeMobile) darkModeMobile.checked = isDark;
+  }
+});
+
 // Initialize on page load
 initDarkMode();
