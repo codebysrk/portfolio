@@ -710,23 +710,53 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           <div class="project-card group cursor-pointer gsap-reveal">
-            <div
-              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
-            >
-              <video
-                src="./assets/projects/reelify.webm"
-                poster="./assets/projects/thumb-reelify.png"
-                muted
-                loop
-                preload="none"
-                class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                onmouseenter="this.play()"
-                onmouseleave="this.pause();this.currentTime=0;this.load();"
-              ></video>
+            <!-- Browser Card: Reelify -->
+            <div class="browser mb-6">
+              <div class="tabs-head">
+                <div class="tabs">
+                  <div class="tab-open">
+                    <div class="rounded-l"><div class="mask-round"></div></div>
+                    <span>Reelify</span>
+                    <div class="close-tab">✕</div>
+                    <div class="rounded-r"><div class="mask-round"></div></div>
+                  </div>
+                </div>
+                <div class="window-opt">
+                  <button>-</button>
+                  <button>□</button>
+                  <button class="window-close">✕</button>
+                </div>
+              </div>
+              <div class="head-browser">
+                <button>←</button>
+                <button disabled="">→</button>
+                <input
+                  type="text"
+                  readonly
+                  value="github.com/codebysrk/reelify"
+                />
+                <button>⋮</button>
+                <div class="star">★</div>
+              </div>
               <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
-              ></div>
+                class="browser-content group-hover:bg-black/5 transition-colors"
+              >
+                <video
+                  src="./assets/projects/reelify.webm"
+                  poster="./assets/projects/thumb-reelify.png"
+                  muted
+                  loop
+                  preload="none"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause();this.currentTime=0;this.load();"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
+                ></div>
+              </div>
             </div>
+
             <div class="flex justify-between items-start mb-2">
               <h3
                 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
@@ -769,23 +799,47 @@
           </div>
 
           <div class="project-card group cursor-pointer md:mt-20 gsap-reveal">
-            <div
-              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
-            >
-              <video
-                src="./assets/projects/apple-clone.webm"
-                poster="./assets/projects/thumb-apple.png"
-                muted
-                loop
-                preload="none"
-                class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                onmouseenter="this.play()"
-                onmouseleave="this.pause();this.currentTime=0;this.load();"
-              ></video>
-              <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
-              ></div>
+            <!-- Browser Card: Apple Clone -->
+            <div class="browser mb-6">
+              <div class="tabs-head">
+                <div class="tabs">
+                  <div class="tab-open">
+                    <div class="rounded-l"><div class="mask-round"></div></div>
+                    <span>Apple</span>
+                    <div class="close-tab">✕</div>
+                    <div class="rounded-r"><div class="mask-round"></div></div>
+                  </div>
+                </div>
+                <div class="window-opt">
+                  <button>-</button>
+                  <button>□</button>
+                  <button class="window-close">✕</button>
+                </div>
+              </div>
+              <div class="head-browser">
+                <button>←</button>
+                <button disabled="">→</button>
+                <input type="text" readonly value="apple.com" />
+                <button>⋮</button>
+                <div class="star">★</div>
+              </div>
+              <div class="browser-content">
+                <video
+                  src="./assets/projects/apple-clone.webm"
+                  poster="./assets/projects/thumb-apple.png"
+                  muted
+                  loop
+                  preload="none"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause();this.currentTime=0;this.load();"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
+                ></div>
+              </div>
             </div>
+
             <div class="flex justify-between items-start mb-2">
               <h3
                 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
@@ -828,23 +882,47 @@
           </div>
 
           <div class="project-card group cursor-pointer gsap-reveal">
-            <div
-              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
-            >
-              <video
-                src="./assets/projects/shery-clone.webm"
-                poster="./assets/projects/thumb-sheryians.png"
-                muted
-                loop
-                preload="none"
-                class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                onmouseenter="this.play()"
-                onmouseleave="this.pause();this.currentTime=0;this.load();"
-              ></video>
-              <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
-              ></div>
+            <!-- Browser Card: Sheryians -->
+            <div class="browser mb-6">
+              <div class="tabs-head">
+                <div class="tabs">
+                  <div class="tab-open">
+                    <div class="rounded-l"><div class="mask-round"></div></div>
+                    <span>Sheryians</span>
+                    <div class="close-tab">✕</div>
+                    <div class="rounded-r"><div class="mask-round"></div></div>
+                  </div>
+                </div>
+                <div class="window-opt">
+                  <button>-</button>
+                  <button>□</button>
+                  <button class="window-close">✕</button>
+                </div>
+              </div>
+              <div class="head-browser">
+                <button>←</button>
+                <button disabled="">→</button>
+                <input type="text" readonly value="sheryians.com/courses" />
+                <button>⋮</button>
+                <div class="star">★</div>
+              </div>
+              <div class="browser-content">
+                <video
+                  src="./assets/projects/shery-clone.webm"
+                  poster="./assets/projects/thumb-sheryians.png"
+                  muted
+                  loop
+                  preload="none"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause();this.currentTime=0;this.load();"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
+                ></div>
+              </div>
             </div>
+
             <div class="flex justify-between items-start mb-2">
               <h3
                 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
@@ -887,23 +965,47 @@
           </div>
 
           <div class="project-card group cursor-pointer md:mt-20 gsap-reveal">
-            <div
-              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
-            >
-              <video
-                src="./assets/projects/rastro.webm"
-                poster="./assets/projects/thumb-rastro.png"
-                muted
-                loop
-                preload="none"
-                class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                onmouseenter="this.play()"
-                onmouseleave="this.pause();this.currentTime=0;this.load();"
-              ></video>
-              <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
-              ></div>
+            <!-- Browser Card: Rastro -->
+            <div class="browser mb-6">
+              <div class="tabs-head">
+                <div class="tabs">
+                  <div class="tab-open">
+                    <div class="rounded-l"><div class="mask-round"></div></div>
+                    <span>Rastro</span>
+                    <div class="close-tab">✕</div>
+                    <div class="rounded-r"><div class="mask-round"></div></div>
+                  </div>
+                </div>
+                <div class="window-opt">
+                  <button>-</button>
+                  <button>□</button>
+                  <button class="window-close">✕</button>
+                </div>
+              </div>
+              <div class="head-browser">
+                <button>←</button>
+                <button disabled="">→</button>
+                <input type="text" readonly value="rastro.cafe" />
+                <button>⋮</button>
+                <div class="star">★</div>
+              </div>
+              <div class="browser-content">
+                <video
+                  src="./assets/projects/rastro.webm"
+                  poster="./assets/projects/thumb-rastro.png"
+                  muted
+                  loop
+                  preload="none"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause();this.currentTime=0;this.load();"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
+                ></div>
+              </div>
             </div>
+
             <div class="flex justify-between items-start mb-2">
               <h3
                 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
@@ -946,23 +1048,47 @@
           </div>
 
           <div class="project-card group cursor-pointer gsap-reveal">
-            <div
-              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
-            >
-              <video
-                src="./assets/projects/clock.webm"
-                poster="./assets/projects/thumb-clock.png"
-                muted
-                loop
-                preload="none"
-                class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                onmouseenter="this.play()"
-                onmouseleave="this.pause();this.currentTime=0;this.load();"
-              ></video>
-              <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
-              ></div>
+            <!-- Browser Card: CyberClock -->
+            <div class="browser mb-6">
+              <div class="tabs-head">
+                <div class="tabs">
+                  <div class="tab-open">
+                    <div class="rounded-l"><div class="mask-round"></div></div>
+                    <span>Clock</span>
+                    <div class="close-tab">✕</div>
+                    <div class="rounded-r"><div class="mask-round"></div></div>
+                  </div>
+                </div>
+                <div class="window-opt">
+                  <button>-</button>
+                  <button>□</button>
+                  <button class="window-close">✕</button>
+                </div>
+              </div>
+              <div class="head-browser">
+                <button>←</button>
+                <button disabled="">→</button>
+                <input type="text" readonly value="cyberclock.app" />
+                <button>⋮</button>
+                <div class="star">★</div>
+              </div>
+              <div class="browser-content">
+                <video
+                  src="./assets/projects/clock.webm"
+                  poster="./assets/projects/thumb-clock.png"
+                  muted
+                  loop
+                  preload="none"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause();this.currentTime=0;this.load();"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
+                ></div>
+              </div>
             </div>
+
             <div class="flex justify-between items-start mb-2">
               <h3
                 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
@@ -1009,23 +1135,47 @@
           </div>
 
           <div class="project-card group cursor-pointer md:mt-20 gsap-reveal">
-            <div
-              class="overflow-hidden rounded-2xl mb-6 border-4 border-stone relative aspect-[4/3]"
-            >
-              <video
-                src="./assets/projects/portfolio.webm"
-                poster="./assets/projects/thumb-portfolio.png"
-                muted
-                loop
-                preload="none"
-                class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                onmouseenter="this.play()"
-                onmouseleave="this.pause();this.currentTime=0;this.load();"
-              ></video>
-              <div
-                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
-              ></div>
+            <!-- Browser Card: Portfolio -->
+            <div class="browser mb-6">
+              <div class="tabs-head">
+                <div class="tabs">
+                  <div class="tab-open">
+                    <div class="rounded-l"><div class="mask-round"></div></div>
+                    <span>Portfolio</span>
+                    <div class="close-tab">✕</div>
+                    <div class="rounded-r"><div class="mask-round"></div></div>
+                  </div>
+                </div>
+                <div class="window-opt">
+                  <button>-</button>
+                  <button>□</button>
+                  <button class="window-close">✕</button>
+                </div>
+              </div>
+              <div class="head-browser">
+                <button>←</button>
+                <button disabled="">→</button>
+                <input type="text" readonly value="shahrukh.dev" />
+                <button>⋮</button>
+                <div class="star">★</div>
+              </div>
+              <div class="browser-content">
+                <video
+                  src="./assets/projects/portfolio.webm"
+                  poster="./assets/projects/thumb-portfolio.png"
+                  muted
+                  loop
+                  preload="none"
+                  class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                  onmouseenter="this.play()"
+                  onmouseleave="this.pause();this.currentTime=0;this.load();"
+                ></video>
+                <div
+                  class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"
+                ></div>
+              </div>
             </div>
+
             <div class="flex justify-between items-start mb-2">
               <h3
                 class="font-serif text-3xl font-bold text-black group-hover:text-coral transition-colors"
