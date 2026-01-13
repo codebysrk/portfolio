@@ -15,14 +15,14 @@ html.dark .loader {
   --path: #f6f4f1;
 }
 
-html.dark header {
+/* html.dark header {
   background-color: var(--bg-secondary) !important;
   box-shadow: 0 4px 6px -1px var(--shadow-color);
 }
 
 html.dark .logo span {
   color: var(--text-primary);
-}
+} */
 
 html.dark .nav .container {
   background-color: var(--bg-tertiary);
