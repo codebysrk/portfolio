@@ -266,13 +266,7 @@ menuCheckbox.addEventListener("change", function () {
   }
 });
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    menuCheckbox.checked = false;
-    lenis.start();
-    menuTl.reverse();
-  });
-});
+// Mobile menu links are handled by the global smooth scroll listener below
 
 const darkModeDesktop = document.getElementById("checkbox-desktop");
 const darkModeMobile = document.getElementById("checkbox-mobile");
@@ -381,7 +375,6 @@ function initActiveNav() {
 
     if (current && sectionMap[current]) {
       const radioButton = document.getElementById(sectionMap[current]);
-      if (radioButton) radioButton.check = true; // Wait check or checked? checked
       if (radioButton) radioButton.checked = true;
     }
   }
@@ -403,6 +396,61 @@ function initActiveNav() {
 
 initSmartHeader();
 initActiveNav();
+
+// Global Smooth Scroll for all hash links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+
+    // Handle mobile menu closure if linked
+    if (this.classList.contains("mobile-nav-link")) {
+      const menuCheckbox = document.getElementById("menu-toggle");
+      if (menuCheckbox) menuCheckbox.checked = false;
+      if (lenis) lenis.start();
+      if (menuTl) menuTl.reverse();
+    }
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      lenis.scrollTo(targetElement, {
+        offset: 0,
+        duration: 2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    }
+  });
+});
+
+// Project Card Interactions
+document.addEventListener("click", (e) => {
+  // Handle Project Card Click (excluding buttons)
+  const card = e.target.closest(".project-card");
+  const isButton = e.target.closest("a, button");
+
+  if (card && !isButton) {
+    const demoLink = card.querySelector("a").href;
+    if (demoLink) window.open(demoLink, "_blank");
+  }
+
+  // Handle Browser Window Close Button
+  if (e.target.closest(".window-close")) {
+    const cardToClose = e.target.closest(".project-card");
+    if (cardToClose) {
+      gsap.to(cardToClose, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.inOut",
+        onComplete: () => {
+          cardToClose.style.display = "none";
+          ScrollTrigger.refresh();
+        },
+      });
+    }
+  }
+});
 
 function initStickyFooter() {
   const mainContent = document.getElementById("sticky-main");
