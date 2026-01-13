@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               muted
               loop
               preload="none"
-              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+              class="w-full h-full object-cover object-top"
               onmouseenter="this.play()"
               onmouseleave="this.pause();this.currentTime=0;this.load();"
             ></video>
