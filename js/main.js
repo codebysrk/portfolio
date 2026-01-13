@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.to(element, {
       scrollTrigger: {
         trigger: element,
-        start: "top 85%", // Trigger when element is near bottom of view
+        start: "top 95%", // Trigger earlier when element is near bottom of view
         toggleActions: "play none none reverse",
       },
       y: 0,
