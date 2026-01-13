@@ -13,7 +13,8 @@
 
   display: flex;
   align-items: center;
-  padding: var(--p-y) var(--p-x);
+  height: 100%;
+  padding: 0 var(--p-x);
   position: relative;
   background: var(--color-primary);
   border-radius: var(--round);
