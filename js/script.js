@@ -165,10 +165,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         <div class="flex gap-4">
           <a href="${
             project.demo
-          }" target="_blank" rel="noopener noreferrer" class="text-coral font-bold hover:text-black transition-colors border-b-2 border-coral hover:border-black">Live Demo</a>
+          }" target="_blank" rel="noopener noreferrer" class="text-coral font-bold hover:text-white transition-colors border-b-2 border-coral hover:border-white">Live Demo</a>
           ${
             project.code
-              ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer" class="text-gray-500 font-bold hover:text-black transition-colors">View Code</a>`
+              ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer" class="text-gray-500 font-bold hover:text-white transition-colors">View Code</a>`
               : ""
           }
         </div>
