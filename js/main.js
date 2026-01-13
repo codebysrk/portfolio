@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   tl.to("#preloader", {
     opacity: 0,
     duration: 0.8,
-    delay: 2,
+    delay: 0.8,
     onComplete: () => {
       document.getElementById("preloader").style.display = "none";
       document.body.classList.remove("is-loading"); // Enable interactions
