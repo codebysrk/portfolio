@@ -122,8 +122,7 @@ html.dark .wrap input[class*="rd-"]:checked + label {
 
 /* Hover State on Label triggers Animation */
 .label:hover .span-mother {
-  position: absolute;
-  width: 100%;
+  /* position: absolute;  Also removed width: 100% since flex handles it */
   justify-content: center;
 }
 
