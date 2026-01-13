@@ -136,15 +136,15 @@
     </div>
 
     <header
-      class="gsap-header fixed top-4 left-0 right-0 mx-auto flex w-[95%] max-w-7xl items-center justify-between rounded-full bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 px-8 py-2 shadow-xl z-50 transition-transform duration-300 ease-in-out"
+      class="gsap-header fixed top-4 left-0 right-0 mx-auto flex w-[95%] max-w-7xl items-center justify-between rounded-full bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 px-8 py-2 shadow-xl z-50 transition-transform duration-300 ease-in-out lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none pointer-events-none"
     >
-      <div class="logo shrink-0">
+      <div class="logo shrink-0 pointer-events-auto">
         <span class="font-serif text-2xl font-black tracking-widest text-black"
           >&lt;SRK/&gt;</span
         >
       </div>
 
-      <div class="nav hidden lg:block">
+      <div class="nav hidden lg:block pointer-events-auto">
         <div class="wrap">
           <input type="radio" id="tab-1" name="nav-tab" class="rd-1" checked />
           <label for="tab-1" class="label"><a href="#home">Home</a></label>
@@ -166,7 +166,7 @@
         </div>
       </div>
 
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-6 pointer-events-auto">
         <div class="dark-mode hidden lg:flex items-center">
           <label class="switch" for="checkbox-desktop">
             <input
