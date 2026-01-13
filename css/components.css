@@ -482,6 +482,7 @@ input:checked + .slider .cloud {
   will-change: transform;
   /* Fix Safari border radius clipping */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
 }
 
 /* --- Browser Window Card Styles --- */
