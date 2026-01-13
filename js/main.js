@@ -359,27 +359,41 @@ function initActiveNav() {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-btn");
 
-  const observerOptions = {
-    threshold: 0.3,
-  };
+  function highlightNav() {
+    let current = "";
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => link.classList.remove("text-coral"));
-
-        const id = entry.target.getAttribute("id");
-        if (id) {
-          const activeLink = document.querySelector(`.nav-btn[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add("text-coral");
-          }
-        }
+    // Logic: Find the LAST section whose top is at or above the viewport top (plus offset)
+    sections.forEach((section) => {
+      const sectionTop = section.getBoundingClientRect().top;
+      // offset 200px to trigger slightly before it hits absolute top
+      if (sectionTop <= 200) {
+        current = section.getAttribute("id");
       }
     });
-  }, observerOptions);
 
-  sections.forEach((section) => observer.observe(section));
+    navLinks.forEach((link) => {
+      link.classList.remove("text-coral");
+      const href = link.getAttribute("href");
+      // Check if href matches #id
+      if (current && href === `#${current}`) {
+        link.classList.add("text-coral");
+      }
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        highlightNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Init check
+  highlightNav();
 }
 
 initSmartHeader();
