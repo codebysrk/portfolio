@@ -187,3 +187,49 @@ systemThemeQuery.addEventListener("change", (e) => {
 
 // Initialize on page load
 initDarkMode();
+
+// 4. SMART HEADER & ACTIVE LINKS
+function initSmartHeader() {
+  const header = document.querySelector(".gsap-header");
+  const navLinks = document.querySelectorAll(".nav .nav-btn");
+  const sections = document.querySelectorAll("section");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    // Smart Hide/Show
+    if (currentScroll > 100) {
+      if (currentScroll > lastScroll) {
+        // Down scroll -> Hide
+        header.style.transform = "translateY(-150%)";
+      } else {
+        // Up scroll -> Show
+        header.style.transform = "translateY(0)";
+      }
+    } else {
+      header.style.transform = "translateY(0)";
+    }
+    lastScroll = currentScroll;
+
+    // Active Link Highlight
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("text-coral");
+      const href = link.getAttribute("href");
+      if (current && href.includes(current)) {
+        link.classList.add("text-coral");
+      }
+    });
+  });
+}
+
+initSmartHeader();
