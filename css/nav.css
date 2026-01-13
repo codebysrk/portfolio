@@ -53,7 +53,7 @@ html.dark .wrap input[class*="rd-"]:checked + label {
   font-weight: 700;
   color: var(--color-secondary);
   background: transparent;
-  padding: 10px 0;
+  padding: 6px 0;
   width: var(--w-label);
   min-width: var(--w-label);
   text-decoration: none;
