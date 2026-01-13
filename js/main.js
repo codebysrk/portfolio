@@ -1,9 +1,3 @@
-/* ============================================
-   MAIN JAVASCRIPT
-   ============================================ */
-
-// 1. LENIS SMOOTH SCROLL
-// 1. LENIS SMOOTH SCROLL
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -11,7 +5,6 @@ const lenis = new Lenis({
   smooth: true,
 });
 
-// Sync Lenis with GSAP Ticker for perfect synchronization
 lenis.on("scroll", ScrollTrigger.update);
 
 gsap.ticker.add((time) => {
@@ -20,11 +13,9 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
-// 2. GSAP ANIMATIONS
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // 0. RENDER PROJECTS DYNAMICALLY
   const projects = [
     {
       id: "reelify",
@@ -114,7 +105,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       <div class="project-card group cursor-pointer gsap-reveal ${
         index % 2 !== 0 ? "md:mt-20" : ""
       }">
-        <!-- Browser Card -->
         <div class="browser mb-6">
           <div class="tabs-head">
             <div class="tabs">
@@ -186,11 +176,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       .join("");
   }
 
-  // Add loading class to body initially
   document.body.classList.add("is-loading");
-  lenis.stop(); // Stop smooth scroll during loading
+  lenis.stop();
 
-  // Preloader & Hero Animation Timeline
   const tl = gsap.timeline();
   tl.to("#preloader", {
     opacity: 0,
@@ -198,8 +186,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     delay: 0.8,
     onComplete: () => {
       document.getElementById("preloader").style.display = "none";
-      document.body.classList.remove("is-loading"); // Enable interactions
-      lenis.start(); // Start smooth scroll
+      document.body.classList.remove("is-loading");
+      lenis.start();
     },
   })
     .to(
@@ -229,12 +217,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       "-=1.2"
     );
 
-  // Scroll Reveal Animations for Sections
   gsap.utils.toArray(".gsap-reveal").forEach((element) => {
     gsap.to(element, {
       scrollTrigger: {
         trigger: element,
-        start: "top 95%", // Trigger earlier when element is near bottom of view
+        start: "top 95%",
         toggleActions: "play none none reverse",
       },
       y: 0,
@@ -245,7 +232,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-// 3. MOBILE MENU
 const menuCheckbox = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");
 const navLinks = document.querySelectorAll("#mobile-menu a");
@@ -288,16 +274,12 @@ navLinks.forEach((link) => {
   });
 });
 
-// 4. DARK MODE TOGGLE
 const darkModeDesktop = document.getElementById("checkbox-desktop");
 const darkModeMobile = document.getElementById("checkbox-mobile");
 const htmlElement = document.documentElement;
 
-// Clear any existing theme preference to always sync with system
-// Comment out the line below if you want to remember user's manual choice
 localStorage.removeItem("theme");
 
-// Check for system preference
 function initDarkMode() {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -312,19 +294,16 @@ function initDarkMode() {
   }
 }
 
-// Toggle dark mode function (manual override)
 function toggleDarkMode(isDark) {
   if (isDark) {
     htmlElement.classList.add("dark");
   } else {
     htmlElement.classList.remove("dark");
   }
-  // Sync both toggles
   if (darkModeDesktop) darkModeDesktop.checked = isDark;
   if (darkModeMobile) darkModeMobile.checked = isDark;
 }
 
-// Event listeners for both checkboxes
 if (darkModeDesktop) {
   darkModeDesktop.addEventListener("change", function () {
     toggleDarkMode(this.checked);
@@ -337,7 +316,6 @@ if (darkModeMobile) {
   });
 }
 
-// Listen for system theme changes in real-time - ALWAYS applies
 const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 systemThemeQuery.addEventListener("change", (e) => {
   const isDark = e.matches;
@@ -346,15 +324,12 @@ systemThemeQuery.addEventListener("change", (e) => {
   } else {
     htmlElement.classList.remove("dark");
   }
-  // Sync toggles
   if (darkModeDesktop) darkModeDesktop.checked = isDark;
   if (darkModeMobile) darkModeMobile.checked = isDark;
 });
 
-// Initialize on page load
 initDarkMode();
 
-// 4. SMART HEADER & ACTIVE LINKS (OPTIMIZED)
 function initSmartHeader() {
   const header = document.querySelector(".gsap-header");
   if (!header) return;
@@ -367,7 +342,6 @@ function initSmartHeader() {
       window.requestAnimationFrame(() => {
         const currentScroll = window.scrollY;
 
-        // Smart Hide/Show
         if (currentScroll > 100 && currentScroll > lastScroll) {
           header.style.transform = "translateY(-150%)";
         } else {
@@ -378,7 +352,7 @@ function initSmartHeader() {
       });
       ticking = true;
     }
-  }); // Fixed missing closing parenthesis for addEventListener
+  });
 }
 
 function initActiveNav() {
@@ -386,7 +360,7 @@ function initActiveNav() {
   const navLinks = document.querySelectorAll(".nav-btn");
 
   const observerOptions = {
-    threshold: 0.3, // Trigger when 30% of section is visible
+    threshold: 0.3,
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -411,7 +385,6 @@ function initActiveNav() {
 initSmartHeader();
 initActiveNav();
 
-// 5. STICKY FOOTER REVEAL
 function initStickyFooter() {
   const mainContent = document.getElementById("sticky-main");
   const footer = document.getElementById("contact");
@@ -423,11 +396,9 @@ function initStickyFooter() {
     mainContent.style.marginBottom = `${footerHeight}px`;
   }
 
-  // Adjust on load and resize
   window.addEventListener("load", adjustFooter);
   window.addEventListener("resize", adjustFooter);
 
-  // Also adjust continually for a second in case of fonts loading
   let intervals = 0;
   const interval = setInterval(() => {
     adjustFooter();
@@ -435,7 +406,6 @@ function initStickyFooter() {
     if (intervals > 20) clearInterval(interval);
   }, 100);
 
-  // Use ResizeObserver
   const resizeObserver = new ResizeObserver(adjustFooter);
   resizeObserver.observe(footer);
 }

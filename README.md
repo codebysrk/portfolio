@@ -18,6 +18,8 @@ A modern, responsive portfolio website showcasing my skills, projects, and exper
 
 ## 🎨 Features
 
+- **Overlap Scrolling** - Stacked cards effect for major sections
+- **Sticky Footer Reveal** - Smooth footer unveil on scroll end
 - **🌓 Dark Mode Toggle** - Seamless light/dark theme switching
 - **📱 Fully Responsive** - Optimized for all devices
 - **⚡ GSAP Animations** - Smooth scroll-triggered animations
@@ -42,15 +44,16 @@ A modern, responsive portfolio website showcasing my skills, projects, and exper
 ```
 personal-website/
 ├── assets/              # Images, resume, and project videos
-│   └── projects/        # Project demo videos
 ├── css/
 │   ├── base.css         # Base styles and reset
-│   ├── main.css         # Main stylesheet
-│   └── variables.css    # CSS custom properties
+│   ├── main.css         # Main stylesheet (Import hub)
+│   ├── components.css   # Component styles (Cards, Nav, Buttons)
+│   ├── variables.css    # CSS Variables and Theme colors
+│   └── dark-mode.css    # Dark mode specific overrides
 ├── js/
-│   └── main.js          # JavaScript functionality
-├── index.html           # Main HTML file
-└── README.md            # This file
+│   └── main.js          # Main JavaScript logic (GSAP, Lenis, Rendering)
+├── index.html           # Main Entry Point
+└── README.md            # Documentation
 ```
 
 ## 🚀 Getting Started
@@ -73,13 +76,14 @@ personal-website/
 
 ## 📸 Sections
 
-| Section        | Description                                               |
-| -------------- | --------------------------------------------------------- |
-| **Hero**       | Animated introduction with profile image and tech stack   |
-| **About**      | Personal story, experience stats, and current focus areas |
-| **Projects**   | Interactive project cards with video demos on hover       |
-| **Experience** | Professional journey and career highlights                |
-| **Contact**    | Get in touch form and social links                        |
+| Section        | Description                                             |
+| -------------- | ------------------------------------------------------- |
+| **Hero**       | Cinematic introduction with stacked scroll effect       |
+| **About**      | Personal story and stats                                |
+| **Skills**     | Tech Ecosystem grid with glassmorphism cards            |
+| **Projects**   | Dynamic browser-style cards with video demos (No-Scale) |
+| **Experience** | Professional journey and career highlights              |
+| **Contact**    | Minimal footer with reveal effect                       |
 
 ## 🎯 Featured Projects
 
@@ -96,7 +100,7 @@ Check out the live website: [**codebysrk.github.io/personal-website**](https://c
 
 ## 📧 Contact
 
-- **Email**: Feel free to reach out through the contact form
+- **Email**: via Contact Form
 - **LinkedIn**: [Shahrukh Khan](https://linkedin.com/in/codebysrk)
 - **GitHub**: [@codebysrk](https://github.com/codebysrk)
 
