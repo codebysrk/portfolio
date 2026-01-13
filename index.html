@@ -59,6 +59,9 @@
       content="https://codebysrk.github.io/personal-website/assets/og-image.jpg"
     />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -134,6 +137,7 @@
         <div class="container">
           <a href="#home" class="nav-btn">Home</a>
           <a href="#about" class="nav-btn">About</a>
+          <a href="#skills" class="nav-btn">Skills</a>
           <a href="#projects" class="nav-btn">Projects</a>
           <a href="#contact" class="nav-btn">Contact</a>
           <svg
@@ -205,6 +209,11 @@
           href="#about"
           class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
           >About</a
+        >
+        <a
+          href="#skills"
+          class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
+          >Skills</a
         >
         <a
           href="#projects"
@@ -284,7 +293,7 @@
             >
               <a href="#contact" class="btn-hero btn-primary">Hire Me</a>
               <a
-                href="./assets/Resume.pdf"
+                href="./assets/Shahrukh-Khan-Resume.pdf"
                 target="_blank"
                 class="btn-hero btn-secondary"
                 >Download CV</a
@@ -421,6 +430,240 @@
       </div>
     </section>
 
+    <!-- Tech Ecosystem Section -->
+    <section
+      id="skills"
+      class="py-20 px-4 md:px-8 lg:px-16 bg-paper relative z-10 border-t border-stone/30"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16 gsap-reveal">
+          <h2 class="font-serif text-5xl font-black text-black mb-4">
+            Tech Ecosystem
+          </h2>
+          <div class="h-1 w-24 bg-coral"></div>
+          <p class="font-sans text-lg text-gray-600 mt-6 max-w-2xl">
+            Technologies I use to bring ideas to life. Constantly learning and
+            expanding my toolkit.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Frontend -->
+          <div
+            class="gsap-reveal skill-card p-8 bg-white rounded-2xl border border-stone/50 hover:border-coral transition-all duration-300 hover:shadow-xl group"
+          >
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 text-coral"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-black">Frontend</h3>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="HTML5"
+              >
+                <i class="devicon-html5-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">HTML5</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="CSS3"
+              >
+                <i class="devicon-css3-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">CSS3</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="JavaScript"
+              >
+                <i class="devicon-javascript-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">JavaScript</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="React"
+              >
+                <i class="devicon-react-original colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">React</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="Tailwind CSS"
+              >
+                <i class="devicon-tailwindcss-original colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">Tailwind</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="GSAP"
+              >
+                <span class="text-3xl font-black text-green-500">GS</span>
+                <span class="text-xs font-bold text-gray-500">GSAP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div
+            class="gsap-reveal skill-card p-8 bg-white rounded-2xl border border-stone/50 hover:border-coral transition-all duration-300 hover:shadow-xl group"
+          >
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 text-coral"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-black">Backend</h3>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="Node.js"
+              >
+                <i class="devicon-nodejs-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">Node.js</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="Express.js"
+              >
+                <i class="devicon-express-original text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">Express</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="MongoDB"
+              >
+                <i class="devicon-mongodb-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">MongoDB</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="REST APIs"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                <span class="text-xs font-bold text-gray-500">REST API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & DevOps -->
+          <div
+            class="gsap-reveal skill-card p-8 bg-white rounded-2xl border border-stone/50 hover:border-coral transition-all duration-300 hover:shadow-xl group"
+          >
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 text-coral"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-black">
+                Tools & DevOps
+              </h3>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="Git"
+              >
+                <i class="devicon-git-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">Git</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="GitHub"
+              >
+                <i class="devicon-github-original text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">GitHub</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="VS Code"
+              >
+                <i class="devicon-vscode-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">VS Code</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="npm"
+              >
+                <i class="devicon-npm-original-wordmark colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">npm</span>
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-stone/30 transition-colors cursor-pointer"
+                title="Postman"
+              >
+                <i class="devicon-postman-plain colored text-3xl"></i>
+                <span class="text-xs font-bold text-gray-500">Postman</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section
       id="projects"
       class="py-20 px-4 md:px-8 lg:px-16 bg-paper relative z-10 border-t border-stone/30"
@@ -484,7 +727,8 @@
                 >Live Demo</a
               >
               <a
-                href="#"
+                href="https://github.com/codebysrk/reelify"
+                target="_blank"
                 class="text-gray-500 font-bold hover:text-black transition-colors"
                 >View Code</a
               >
@@ -540,7 +784,8 @@
                 >Live Demo</a
               >
               <a
-                href="#"
+                href="https://github.com/codebysrk/apple-clone"
+                target="_blank"
                 class="text-gray-500 font-bold hover:text-black transition-colors"
                 >View Code</a
               >
@@ -596,7 +841,8 @@
                 >Live Demo</a
               >
               <a
-                href="#"
+                href="https://github.com/codebysrk/Sheryians-clone"
+                target="_blank"
                 class="text-gray-500 font-bold hover:text-black transition-colors"
                 >View Code</a
               >
@@ -652,7 +898,8 @@
                 >Live Demo</a
               >
               <a
-                href="#"
+                href="https://github.com/codebysrk/Rastro"
+                target="_blank"
                 class="text-gray-500 font-bold hover:text-black transition-colors"
                 >View Code</a
               >
@@ -805,7 +1052,7 @@
               >Jan 2024 - June 2024</span
             >
             <h3 class="font-serif text-3xl font-bold text-black mb-1">
-               Web Developer Intern
+              Web Developer Intern
             </h3>
             <h4 class="font-sans text-lg text-gray-500 font-bold mb-4">
               Praedico Global Research Pvt. Ltd.
