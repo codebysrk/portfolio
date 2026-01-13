@@ -267,10 +267,11 @@
       </nav>
     </div>
 
-    <section
-      class="site-banner pt-[5rem] lg:pt-14 min-h-screen flex items-center justify-center bg-paper px-4 md:px-8 lg:px-16"
-      id="home"
-    >
+    <main id="sticky-main" class="relative z-10 bg-paper transition-shadow duration-300 shadow-2xl">
+      <section
+        class="site-banner pt-[5rem] lg:pt-14 min-h-screen flex items-center justify-center bg-paper px-4 md:px-8 lg:px-16"
+        id="home"
+      >
       <div class="max-w-7xl mx-auto w-full">
         <div
           class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
@@ -754,10 +755,11 @@
         </div>
       </div>
     </section>
+    </main>
 
     <section
       id="contact"
-      class="pt-16 pb-6 md:pb-12 px-4 md:px-8 lg:px-16 bg-black text-paper relative z-10"
+      class="fixed bottom-0 left-0 w-full z-0 pt-16 pb-6 md:pb-12 px-4 md:px-8 lg:px-16 bg-black text-paper flex flex-col justify-center min-h-[50vh]"
     >
       <div class="max-w-7xl mx-auto text-center">
         <div class="gsap-reveal">

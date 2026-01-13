@@ -399,3 +399,34 @@ function initSmartHeader() {
 }
 
 initSmartHeader();
+
+// 5. STICKY FOOTER REVEAL
+function initStickyFooter() {
+  const mainContent = document.getElementById("sticky-main");
+  const footer = document.getElementById("contact");
+
+  if (!mainContent || !footer) return;
+
+  function adjustFooter() {
+    const footerHeight = footer.offsetHeight;
+    mainContent.style.marginBottom = `${footerHeight}px`;
+  }
+
+  // Adjust on load and resize
+  window.addEventListener("load", adjustFooter);
+  window.addEventListener("resize", adjustFooter);
+
+  // Also adjust continually for a second in case of fonts loading
+  let intervals = 0;
+  const interval = setInterval(() => {
+    adjustFooter();
+    intervals++;
+    if (intervals > 20) clearInterval(interval);
+  }, 100);
+
+  // Use ResizeObserver
+  const resizeObserver = new ResizeObserver(adjustFooter);
+  resizeObserver.observe(footer);
+}
+
+initStickyFooter();
