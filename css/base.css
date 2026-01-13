@@ -83,3 +83,80 @@ html.lenis body {
   opacity: 0;
   transform: translateY(30px);
 }
+
+/* ============================================
+   MOBILE VIEWPORT HEIGHT UTILITIES
+   Using dvh (dynamic) and svh (small) for better mobile support
+   ============================================ */
+
+/* Full height sections - use dvh for dynamic adjustment with address bar */
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh !important;
+  }
+
+  #mobile-menu {
+    height: 100dvh !important;
+  }
+
+  #preloader {
+    height: 100dvh !important;
+  }
+}
+
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  #mobile-menu {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+
+  #preloader {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+}
+
+/* Hero section uses svh for stable height (doesn't change with address bar) */
+@supports (min-height: 100svh) {
+  .site-banner {
+    min-height: 100svh !important;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  /* Ensure proper scrolling on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Touch-friendly tap targets */
+  .nav-btn,
+  .mobile-nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Safe area insets for notched phones */
+  .site-banner {
+    padding-top: max(8rem, env(safe-area-inset-top));
+  }
+
+  #mobile-menu {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Prevent content from going under mobile browser UI */
+  #contact {
+    padding-bottom: max(6rem, env(safe-area-inset-bottom));
+  }
+}
