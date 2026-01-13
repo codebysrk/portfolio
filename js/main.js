@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       desc: "Personal portfolio with GSAP animations, smooth scroll, and premium design.",
       tags: ["Tailwind", "GSAP", "Lenis"],
       demo: "https://codebysrk.github.io/profile/",
-      code: "https://github.com/codebysrk/profile",
       video: "./assets/projects/portfolio.webm",
       poster: "./assets/projects/thumb-portfolio.png",
       address: "shahrukh.dev",
