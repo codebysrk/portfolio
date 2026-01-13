@@ -6,12 +6,7 @@
   --p-x: 5px;
   --p-y: 5px;
   --w-label: 115px;
-  --color-primary: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Increased Opacity for Visibility */
+  --color-primary: rgba(255, 255, 255, 0.8);
   --color-secondary: #000;
   --color-pure: #fff;
   --muted: #f95c4b; /* Coral */
@@ -23,23 +18,21 @@
   background: var(--color-primary);
   border-radius: var(--round);
   max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.5); /* Stronger border */
+  border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(15px);
   box-shadow: none;
 }
 
 html.dark .wrap {
-  --color-primary: rgba(30, 30, 30, 0.8); /* Dark mode opaque glass */
-  --color-secondary: #fff; /* Pure white text */
-  --color-pure: #000; /* Active text on Coral? Wait coral is dark? No Coral #F95C4B is bright. Value #000 is good contrast on Coral? or White? */
-  /* Coral is mid-tone. White text is better on Coral. */
+  --color-primary: rgba(30, 30, 30, 0.8);
+  --color-secondary: #fff;
   --color-pure: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Fix Active Text Color in Dark Mode */
 html.dark .wrap input[class*="rd-"]:checked + label {
-  color: #fff; /* Ensure White on Coral in dark mode too */
+  color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -55,9 +48,9 @@ html.dark .wrap input[class*="rd-"]:checked + label {
 .label {
   cursor: pointer;
   outline: none;
-  font-size: 1rem; /* Larger font */
+  font-size: 1rem;
   letter-spacing: 0.02em;
-  font-weight: 700; /* Bolder */
+  font-weight: 700;
   color: var(--color-secondary);
   background: transparent;
   padding: 10px 0;
@@ -80,6 +73,7 @@ html.dark .wrap input[class*="rd-"]:checked + label {
   text-decoration: none;
   width: 100%;
   height: 100%;
+  /* Flex settings controlled by inner container now */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,6 +84,105 @@ html.dark .wrap input[class*="rd-"]:checked + label {
   transition: color 0.3s ease 0.1s;
 }
 
+/* ----------------------------------
+   TEXT ANIMATION (User Requested)
+   ---------------------------------- */
+.label .nav-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.label .span-mother {
+  display: flex;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.label .span-mother2 {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.label .span-mother2 span {
+  transform: translateY(-1.5em);
+  opacity: 0;
+}
+
+/* Hover State on Label triggers Animation */
+.label:hover .span-mother {
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+}
+
+.label:hover .span-mother span {
+  transform: translateY(1.5em);
+  opacity: 0;
+}
+
+.label:hover .span-mother2 span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Text Delays for Smooth Effect */
+.label .span-mother span,
+.label .span-mother2 span {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: inline-block;
+}
+
+/* Nth Child Delays for up to 12 chars */
+.label span:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.label span:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.label span:nth-child(3) {
+  transition-delay: 0.11s;
+}
+.label span:nth-child(4) {
+  transition-delay: 0.14s;
+}
+.label span:nth-child(5) {
+  transition-delay: 0.17s;
+}
+.label span:nth-child(6) {
+  transition-delay: 0.2s;
+}
+.label span:nth-child(7) {
+  transition-delay: 0.23s;
+}
+.label span:nth-child(8) {
+  transition-delay: 0.26s;
+}
+.label span:nth-child(9) {
+  transition-delay: 0.29s;
+}
+.label span:nth-child(10) {
+  transition-delay: 0.32s;
+}
+.label span:nth-child(11) {
+  transition-delay: 0.35s;
+}
+.label span:nth-child(12) {
+  transition-delay: 0.38s;
+}
+
+/* BAR STYLING */
 .bar {
   display: flex;
   align-items: center;
