@@ -412,6 +412,16 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       if (menuTl) menuTl.reverse();
     }
 
+    // Handle #contact specifically for the sticky footer reveal
+    if (targetId === "#contact") {
+      lenis.scrollTo("bottom", {
+        offset: 0,
+        duration: 2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+      return;
+    }
+
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
       lenis.scrollTo(targetElement, {
