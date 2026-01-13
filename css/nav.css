@@ -5,8 +5,8 @@
   --round: 9999px;
   --p-x: 5px;
   --p-y: 5px;
-  --w-label: 90px;
-  --color-primary: rgba(255, 255, 255, 0.8);
+  --w-label: 115px; /* Wider for 'Experience' */
+  --color-primary: rgba(255, 255, 255, 0.1);
   --color-secondary: #000;
   --color-pure: #fff;
   --muted: #f95c4b; /* Coral */
@@ -18,18 +18,20 @@
   background: var(--color-primary);
   border-radius: var(--round);
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  backdrop-filter: blur(12px);
+  /* Minimal shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 html.dark .wrap {
-  --color-primary: rgba(20, 20, 20, 0.8);
-  --color-secondary: #ddd;
+  --color-primary: rgba(0, 0, 0, 0.4);
+  --color-secondary: #eee;
   --color-pure: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Dark subtle border */
 }
 
+/* Base Styles */
 .wrap input {
   height: 0;
   width: 0;
@@ -42,18 +44,18 @@ html.dark .wrap {
 .label {
   cursor: pointer;
   outline: none;
-  font-size: 0.9rem;
-  letter-spacing: initial;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
   font-weight: 600;
   color: var(--color-secondary);
   background: transparent;
-  padding: 8px 0;
+  padding: 10px 0;
   width: var(--w-label);
-  min-width: var(--w-label);
+  min-width: var(--w-label); /* Ensure fixed width for math */
   text-decoration: none;
   -webkit-user-select: none;
   user-select: none;
-  transition: color 0.25s ease;
+  transition: color 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,10 +74,13 @@ html.dark .wrap {
   justify-content: center;
 }
 
+/* Active State Text Color */
 .wrap input[class*="rd-"]:checked + label {
   color: var(--color-pure);
+  transition: color 0.3s ease 0.1s;
 }
 
+/* Slider Track (Invisible mostly) */
 .bar {
   display: flex;
   align-items: center;
@@ -89,6 +94,7 @@ html.dark .wrap {
   transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
 }
 
+/* The Moving Pill */
 .slidebar {
   position: absolute;
   height: calc(100% - (var(--p-y) * 2));
@@ -98,9 +104,10 @@ html.dark .wrap {
   transform-origin: 0 0 0;
   z-index: 0;
   transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
-  box-shadow: 0 4px 15px rgba(249, 92, 75, 0.4);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Transforms for 5 Items */
 .rd-1:checked ~ .bar,
 .rd-1:checked ~ .slidebar {
   transform: translateX(0) scaleX(1);
@@ -124,10 +131,4 @@ html.dark .wrap {
 .rd-5:checked ~ .bar,
 .rd-5:checked ~ .slidebar {
   transform: translateX(400%) scaleX(1);
-}
-
-@media (max-width: 1024px) {
-  .wrap {
-    display: none; /* Hide on mobile/tablet, rely on hamburger */
-  }
 }
