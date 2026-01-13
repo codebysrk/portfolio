@@ -102,7 +102,7 @@
   </head>
 
   <body
-    class="bg-paper min-h-screen pt-4 sm:pt-10 font-sans text-black overflow-x-hidden"
+    class="bg-paper min-h-screen font-sans text-black overflow-x-hidden"
   >
     <!-- SVG ClipPath for Squircle Icons -->
     <svg width="0" height="0" style="position: absolute">
@@ -146,16 +146,16 @@
 
       <div class="nav hidden lg:block">
         <div class="container">
-          <a href="#home" class="nav-btn">Home</a>
+          <a href="#home" class="nav-btn active">Home</a>
           <a href="#about" class="nav-btn">About</a>
           <a href="#skills" class="nav-btn">Skills</a>
           <a href="#projects" class="nav-btn">Projects</a>
-          <a href="#contact" class="nav-btn">Contact</a>
+          <a href="#experience" class="nav-btn">Experience</a>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 560 64"
+            viewBox="0 0 460 64"
             height="64"
-            width="560"
+            width="460"
             preserveAspectRatio="none"
             class="outline"
           >
@@ -163,7 +163,7 @@
               stroke-width="3"
               fill="transparent"
               height="64"
-              width="560"
+              width="460"
               y="0"
               x="0"
               pathLength="100"
@@ -232,6 +232,11 @@
           >Projects</a
         >
         <a
+          href="#experience"
+          class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
+          >Experinece</a
+        >
+        <a
           href="#contact"
           class="mobile-nav-link font-serif text-5xl font-black text-black hover:text-coral transition-colors"
           >Contact</a
@@ -267,7 +272,7 @@
       </nav>
     </div>
 
-    <main id="sticky-main" class="relative z-10 bg-paper transition-shadow duration-300 shadow-2xl">
+    <main id="sticky-main" class="relative z-10 bg-paper transition-shadow duration-300 shadow-2xl pt-4 sm:pt-10">
       <section
         class="site-banner sticky top-0 z-[1] pt-[5rem] lg:pt-14 min-h-screen flex items-center justify-center bg-paper px-4 md:px-8 lg:px-16"
         id="home"
