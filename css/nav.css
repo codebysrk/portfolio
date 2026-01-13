@@ -5,8 +5,13 @@
   --round: 9999px;
   --p-x: 5px;
   --p-y: 5px;
-  --w-label: 115px; /* Wider for 'Experience' */
-  --color-primary: rgba(255, 255, 255, 0.1);
+  --w-label: 115px;
+  --color-primary: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Increased Opacity for Visibility */
   --color-secondary: #000;
   --color-pure: #fff;
   --muted: #f95c4b; /* Coral */
@@ -18,20 +23,26 @@
   background: var(--color-primary);
   border-radius: var(--round);
   max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-  backdrop-filter: blur(12px);
-  /* Minimal shadow */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Stronger border */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* restored styling */
 }
 
 html.dark .wrap {
-  --color-primary: rgba(0, 0, 0, 0.4);
-  --color-secondary: #eee;
+  --color-primary: rgba(30, 30, 30, 0.8); /* Dark mode opaque glass */
+  --color-secondary: #fff; /* Pure white text */
+  --color-pure: #000; /* Active text on Coral? Wait coral is dark? No Coral #F95C4B is bright. Value #000 is good contrast on Coral? or White? */
+  /* Coral is mid-tone. White text is better on Coral. */
   --color-pure: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Dark subtle border */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Base Styles */
+/* Fix Active Text Color in Dark Mode */
+html.dark .wrap input[class*="rd-"]:checked + label {
+  color: #fff; /* Ensure White on Coral in dark mode too */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 .wrap input {
   height: 0;
   width: 0;
@@ -44,14 +55,14 @@ html.dark .wrap {
 .label {
   cursor: pointer;
   outline: none;
-  font-size: 0.95rem;
+  font-size: 1rem; /* Larger font */
   letter-spacing: 0.02em;
-  font-weight: 600;
+  font-weight: 700; /* Bolder */
   color: var(--color-secondary);
   background: transparent;
   padding: 10px 0;
   width: var(--w-label);
-  min-width: var(--w-label); /* Ensure fixed width for math */
+  min-width: var(--w-label);
   text-decoration: none;
   -webkit-user-select: none;
   user-select: none;
@@ -74,13 +85,11 @@ html.dark .wrap {
   justify-content: center;
 }
 
-/* Active State Text Color */
 .wrap input[class*="rd-"]:checked + label {
   color: var(--color-pure);
   transition: color 0.3s ease 0.1s;
 }
 
-/* Slider Track (Invisible mostly) */
 .bar {
   display: flex;
   align-items: center;
@@ -94,7 +103,6 @@ html.dark .wrap {
   transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
 }
 
-/* The Moving Pill */
 .slidebar {
   position: absolute;
   height: calc(100% - (var(--p-y) * 2));
@@ -104,10 +112,9 @@ html.dark .wrap {
   transform-origin: 0 0 0;
   z-index: 0;
   transition: transform 0.5s cubic-bezier(0.33, 0.83, 0.99, 0.98);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(249, 92, 75, 0.3);
 }
 
-/* Transforms for 5 Items */
 .rd-1:checked ~ .bar,
 .rd-1:checked ~ .slidebar {
   transform: translateX(0) scaleX(1);
