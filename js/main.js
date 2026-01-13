@@ -354,51 +354,62 @@ systemThemeQuery.addEventListener("change", (e) => {
 // Initialize on page load
 initDarkMode();
 
-// 4. SMART HEADER & ACTIVE LINKS
+// 4. SMART HEADER & ACTIVE LINKS (OPTIMIZED)
 function initSmartHeader() {
   const header = document.querySelector(".gsap-header");
-  const navLinks = document.querySelectorAll(".nav .nav-btn");
-  const sections = document.querySelectorAll("section");
+  if (!header) return;
+
   let lastScroll = 0;
+  let ticking = false;
 
   window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentScroll = window.scrollY;
 
-    // Smart Hide/Show
-    if (currentScroll > 100) {
-      if (currentScroll > lastScroll) {
-        // Down scroll -> Hide
-        header.style.transform = "translateY(-150%)";
-      } else {
-        // Up scroll -> Show
-        header.style.transform = "translateY(0)";
-      }
-    } else {
-      header.style.transform = "translateY(0)";
+        // Smart Hide/Show
+        if (currentScroll > 100 && currentScroll > lastScroll) {
+          header.style.transform = "translateY(-150%)";
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+        lastScroll = currentScroll;
+        ticking = false;
+      });
+      ticking = true;
     }
-    lastScroll = currentScroll;
+  }); // Fixed missing closing parenthesis for addEventListener
+}
 
-    // Active Link Highlight
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (scrollY >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute("id");
+function initActiveNav() {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-btn");
+
+  const observerOptions = {
+    threshold: 0.3, // Trigger when 30% of section is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => link.classList.remove("text-coral"));
+
+        const id = entry.target.getAttribute("id");
+        if (id) {
+          const activeLink = document.querySelector(`.nav-btn[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add("text-coral");
+          }
+        }
       }
     });
+  }, observerOptions);
 
-    navLinks.forEach((link) => {
-      link.classList.remove("text-coral");
-      const href = link.getAttribute("href");
-      if (current && href.includes(current)) {
-        link.classList.add("text-coral");
-      }
-    });
-  });
+  sections.forEach((section) => observer.observe(section));
 }
 
 initSmartHeader();
+initActiveNav();
 
 // 5. STICKY FOOTER REVEAL
 function initStickyFooter() {
