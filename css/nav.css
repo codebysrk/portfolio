@@ -5,7 +5,7 @@
   --round: 9999px;
   --p-x: 5px;
   --p-y: 5px;
-  --w-label: 130px; /* Increased to fix cropping */
+  --w-label: 150px; /* Increased further to fix 'Experience' cropping */
   --color-primary: transparent; /* Transparent for Header Integration */
   --color-secondary: #000;
   --color-pure: #fff;
