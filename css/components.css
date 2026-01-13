@@ -312,3 +312,30 @@ input:checked + .slider .cloud {
 #menu-toggle:checked + .toggle {
   transform: rotate(-90deg);
 }
+
+/* --- Project Card Video Fixes --- */
+.project-card video {
+  border: none;
+  outline: none;
+  display: block;
+  /* Prevent sub-pixel rendering issues */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Fix for container overflow during scale */
+.project-card .overflow-hidden {
+  /* Ensure clean clipping during scale animation */
+  isolation: isolate;
+  /* Force GPU acceleration for smoother animation */
+  will-change: transform;
+}
+
+/* Remove any default focus/active states */
+.project-card video:focus,
+.project-card video:active {
+  outline: none;
+  border: none;
+}
