@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       desc: "Personal portfolio with GSAP animations, smooth scroll, and premium design.",
       tags: ["Tailwind", "GSAP", "Lenis"],
       demo: "https://shahrukhkhann.netlify.app",
-      code: "https://shahrukhkhann.netlify.app",
+      // code: "https://shahrukhkhann.netlify.app",
       video: "./assets/projects/portfolio.webm",
       poster: "./assets/projects/thumb-portfolio.png",
       address: "shahrukh.dev",
@@ -166,9 +166,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
           <a href="${
             project.demo
           }" target="_blank" rel="noopener noreferrer" class="text-coral font-bold hover:text-black transition-colors border-b-2 border-coral hover:border-black">Live Demo</a>
-          <a href="${
+          ${
             project.code
-          }" target="_blank" rel="noopener noreferrer" class="text-gray-500 font-bold hover:text-black transition-colors">View Code</a>
+              ? `<a href="${project.code}" target="_blank" rel="noopener noreferrer" class="text-gray-500 font-bold hover:text-black transition-colors">View Code</a>`
+              : ""
+          }
         </div>
       </div>
     `
