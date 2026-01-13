@@ -157,6 +157,6 @@ html.lenis body {
 
   /* Prevent content from going under mobile browser UI */
   #contact {
-    padding-bottom: max(6rem, env(safe-area-inset-bottom));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
   }
 }
