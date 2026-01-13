@@ -5,8 +5,8 @@
   --round: 9999px;
   --p-x: 5px;
   --p-y: 5px;
-  --w-label: 115px;
-  --color-primary: rgba(255, 255, 255, 0.8);
+  --w-label: 130px; /* Increased to fix cropping */
+  --color-primary: transparent; /* Transparent for Header Integration */
   --color-secondary: #000;
   --color-pure: #fff;
   --muted: #f95c4b; /* Coral */
@@ -18,16 +18,16 @@
   background: var(--color-primary);
   border-radius: var(--round);
   max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
+  border: none; /* No border for seamless look */
+  backdrop-filter: none; /* Remove double blur */
   box-shadow: none;
 }
 
 html.dark .wrap {
-  --color-primary: rgba(30, 30, 30, 0.8);
+  --color-primary: transparent;
   --color-secondary: #fff;
   --color-pure: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
 }
 
 /* Fix Active Text Color in Dark Mode */
