@@ -127,12 +127,15 @@ const darkModeDesktop = document.getElementById("checkbox-desktop");
 const darkModeMobile = document.getElementById("checkbox-mobile");
 const htmlElement = document.documentElement;
 
-// Check for saved preference or system preference
+// Clear any existing theme preference to always sync with system
+// Comment out the line below if you want to remember user's manual choice
+localStorage.removeItem("theme");
+
+// Check for system preference
 function initDarkMode() {
-  const savedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+  if (prefersDark) {
     htmlElement.classList.add("dark");
     if (darkModeDesktop) darkModeDesktop.checked = true;
     if (darkModeMobile) darkModeMobile.checked = true;
@@ -143,14 +146,12 @@ function initDarkMode() {
   }
 }
 
-// Toggle dark mode function
+// Toggle dark mode function (manual override)
 function toggleDarkMode(isDark) {
   if (isDark) {
     htmlElement.classList.add("dark");
-    localStorage.setItem("theme", "dark");
   } else {
     htmlElement.classList.remove("dark");
-    localStorage.setItem("theme", "light");
   }
   // Sync both toggles
   if (darkModeDesktop) darkModeDesktop.checked = isDark;
@@ -170,22 +171,18 @@ if (darkModeMobile) {
   });
 }
 
-// Listen for system theme changes in real-time
+// Listen for system theme changes in real-time - ALWAYS applies
 const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 systemThemeQuery.addEventListener("change", (e) => {
-  // Only auto-switch if user hasn't manually set a preference
-  const savedTheme = localStorage.getItem("theme");
-  if (!savedTheme) {
-    const isDark = e.matches;
-    if (isDark) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
-    // Sync toggles
-    if (darkModeDesktop) darkModeDesktop.checked = isDark;
-    if (darkModeMobile) darkModeMobile.checked = isDark;
+  const isDark = e.matches;
+  if (isDark) {
+    htmlElement.classList.add("dark");
+  } else {
+    htmlElement.classList.remove("dark");
   }
+  // Sync toggles
+  if (darkModeDesktop) darkModeDesktop.checked = isDark;
+  if (darkModeMobile) darkModeMobile.checked = isDark;
 });
 
 // Initialize on page load
