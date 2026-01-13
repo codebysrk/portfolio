@@ -371,14 +371,19 @@ function initActiveNav() {
       }
     });
 
-    navLinks.forEach((link) => {
-      link.classList.remove("text-coral");
-      const href = link.getAttribute("href");
-      // Check if href matches #id
-      if (current && href === `#${current}`) {
-        link.classList.add("text-coral");
-      }
-    });
+    const sectionMap = {
+      home: "tab-1",
+      about: "tab-2",
+      skills: "tab-3",
+      projects: "tab-4",
+      experience: "tab-5",
+    };
+
+    if (current && sectionMap[current]) {
+      const radioButton = document.getElementById(sectionMap[current]);
+      if (radioButton) radioButton.check = true; // Wait check or checked? checked
+      if (radioButton) radioButton.checked = true;
+    }
   }
 
   let ticking = false;
