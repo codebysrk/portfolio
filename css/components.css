@@ -480,8 +480,248 @@ input:checked + .slider .cloud {
   isolation: isolate;
   /* Force GPU acceleration for smoother animation */
   will-change: transform;
+  /* Fix Safari border radius clipping */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
+/* --- Browser Window Card Styles --- */
+.browser {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  background: #353535; /* Match header bg so no gaps show */
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: 1px solid #333;
+}
+
+.browser:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* tabs-head */
+.tabs-head {
+  background-color: #353535;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-left: 20px;
+  z-index: 20;
+  position: relative;
+}
+
+.tabs-head .tab-open {
+  width: 120px;
+  height: 34px;
+  border-radius: 8px 8px 0 0;
+  background-color: #515151;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 10px;
+  position: relative;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle depth */
+}
+
+.tabs-head .tab-open .close-tab {
+  color: #ccc;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.tabs-head .tab-open .close-tab:hover {
+  background-color: #666;
+  color: white;
+}
+
+/* Corner Masking for Apple-style Tabs */
+.tabs-head .tab-open .rounded-l {
+  position: absolute;
+  background-color: #515151; /* Matches TAB bg */
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: -20px; /* Push outside right */
+  pointer-events: none;
+}
+.tabs-head .tab-open .rounded-l .mask-round {
+  width: 100%;
+  height: 100%;
+  background-color: #353535; /* Matches HEADER bg */
+  border-bottom-left-radius: 10px;
+}
+
+.tabs-head .tab-open .rounded-r {
+  position: absolute;
+  background-color: #515151; /* Matches TAB bg */
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  left: -20px; /* Push outside left */
+  pointer-events: none;
+}
+.tabs-head .tab-open .rounded-r .mask-round {
+  width: 100%;
+  height: 100%;
+  background-color: #353535; /* Matches HEADER bg */
+  border-bottom-right-radius: 10px;
+}
+
+.tabs-head .tab-open span {
+  color: #fff;
+  font-size: 11px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabs-head .window-opt {
+  display: flex;
+  gap: 6px;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  align-items: center;
+}
+
+.tabs-head .window-opt button {
+  height: 12px;
+  width: 12px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Mac-style window controls colors */
+.tabs-head .window-opt button:nth-child(1) {
+  background-color: #ff5f56;
+} /* Close */
+.tabs-head .window-opt button:nth-child(2) {
+  background-color: #ffbd2e;
+} /* Minimize */
+.tabs-head .window-opt button:nth-child(3) {
+  background-color: #27c93f;
+} /* Expand */
+
+.tabs-head .window-opt:hover button {
+  color: rgba(0, 0, 0, 0.5); /* Show symbols on hover */
+}
+
+/* head-browser */
+.head-browser {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  background-color: #515151; /* Matches TAB bg for seamless look below tab */
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #444;
+}
+
+.head-browser input {
+  background-color: #3b3b3b;
+  border: 2px solid transparent;
+  height: 32px;
+  border-radius: 8px; /* Softer rect for URL bar */
+  outline: none;
+  color: #ddd;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 0 35px 0 12px;
+  flex: 1;
+  transition: 0.2s ease-in-out;
+}
+
+.head-browser input:hover {
+  background-color: #444;
+}
+
+.head-browser input:focus {
+  border-color: #777;
+  background-color: #333;
+  color: white;
+}
+
+.head-browser button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+  border-radius: 6px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.head-browser button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.head-browser button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.head-browser .star {
+  color: #ffd700;
+  position: absolute;
+  right: 60px; /* Position inside input area */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Content Area */
+.browser-content {
+  flex: 1;
+  position: relative;
+  background: #111;
+  overflow: hidden;
+  height: 100%; /* Fill remaining height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure video fits properly */
+.browser-content video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Back to cover to fill browser window */
+  object-position: top center;
+}
 /* Remove any default focus/active states */
 .project-card video:focus,
 .project-card video:active {
