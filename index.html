@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -58,26 +58,9 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" as="image" href="./assets/carshoot.webp" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Lato", "sans-serif"],
-              serif: ["Playfair Display", "serif"],
-            },
-            colors: {
-              paper: "#F6F4F1",
-              stone: "#E4DED2",
-              coral: "#F95C4B",
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="stylesheet" href="./css/output.css" />
 
     <link
       rel="stylesheet"
@@ -652,10 +635,13 @@
                 class="gsap-hero-img relative z-10 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full p-2 bg-paper shadow-2xl transition-all duration-500 hover:scale-[1.02]"
               >
                 <img
-                  loading="lazy"
+                  loading="eager"
+                  fetchpriority="high"
                   src="./assets/carshoot.webp"
                   alt="Shahrukh Khan"
                   class="w-full h-full rounded-full object-cover border-4 border-stone"
+                  width="448"
+                  height="448"
                 />
               </div>
             </div>
