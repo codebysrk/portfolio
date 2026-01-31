@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           <div class="head-browser">
             <button>←</button>
             <button disabled="">→</button>
-            <input type="text" readonly value="${project.address}" />
+            <input type="text" name="project-url-${index}" id="project-url-${index}" readonly value="${project.address}" />
             <button>⋮</button>
             <div class="star">★</div>
           </div>
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           ${project.tags
             .map(
               (tag) =>
-                `<span class="px-3 py-1 bg-stone text-black text-xs font-bold rounded-full">${tag}</span>`
+                `<span class="px-3 py-1 bg-stone text-black text-xs font-bold rounded-full">${tag}</span>`,
             )
             .join("")}
         </div>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           }
         </div>
       </div>
-    `
+    `,
       )
       .join("");
   }
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     .to(
       ".gsap-header",
       { y: 0, opacity: 1, autoAlpha: 1, duration: 1, ease: "power3.out" },
-      "-=0.2"
+      "-=0.2",
     )
     .to(
       ".gsap-hero-text",
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         stagger: 0.15,
         ease: "power3.out",
       },
-      "-=0.5"
+      "-=0.5",
     )
     .to(
       ".gsap-hero-img",
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 1.2,
         ease: "elastic.out(1, 0.75)",
       },
-      "-=1.2"
+      "-=1.2",
     );
 
   gsap.utils.toArray(".gsap-reveal").forEach((element) => {
@@ -250,12 +250,12 @@ menuTl
       duration: 0.5,
       ease: "power3.out",
     },
-    "-=0.2"
+    "-=0.2",
   )
   .from(
     ".mobile-extras",
     { y: 20, opacity: 0, duration: 0.4, ease: "power3.out" },
-    "-=0.3"
+    "-=0.3",
   );
 
 menuCheckbox.addEventListener("change", function () {
